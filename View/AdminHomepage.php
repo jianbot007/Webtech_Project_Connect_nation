@@ -1,7 +1,13 @@
-<html>
+<?php 
 
+session_start();
+
+if (isset($_SESSION["username"])) {
+    if(isset($_SESSION["Login"])){
+        ?>
+<html>
 <head>
-   
+  
     <title>Admin Homepage</title>
     <style>
         body {
@@ -52,22 +58,17 @@
     <main style="display: flex;">
         <aside style="width: 20%; padding: 10px; background: #eee;">
             <ul style="list-style-type: none; padding: 0;">
-<<<<<<<< HEAD:AdminHomepage.php
             <button onclick="">Admin Settings</button><br><br>
-========
-                <button onclick="">Admin Settings</button><br><br>
->>>>>>>> 500da5ec17226bf4b46166b9eae889e29dd31137:Admin Homepage.php
                 <button onclick="window.location.href='BannedAccount.php'">Banned Account</button><br><br>
                 <button onclick="window.location.href='DeletedPosts.php'">Deleted Post</button><br><br>
                 <button onclick="window.location.href='ComplainBox.php'">Complaint Box</button> <br><br>
                 <button onclick="window.location.href='PremiumAccount.php'">Premium Accounts</button><br><br>
                 <button onclick="window.location.href='BoostRequest.php'">Boost Posts</button><br><br>
                 <button onclick="window.location.href='AdvertisementManage.php'">Advertisement Management</button><br><br>
-<<<<<<<< HEAD:AdminHomepage.php
-========
+                <button onclick="window.location.href='AdminReg.php'">Create New Admin</button><br><br>
+                <button onclick="window.location.href='AdminPassChange.php'">Change Password</button><br><br>
+                <button onclick="window.location.href='../Controller/Logout.php'">Log Out</button><br><br>
 
->>>>>>>> 500da5ec17226bf4b46166b9eae889e29dd31137:Admin Homepage.php
-                
             </ul>
         </aside>
 
@@ -180,3 +181,15 @@
     </main>
 </body>
 </html>
+<?php } 
+
+else{
+    echo "Please Login first";
+}
+}
+
+else {
+    echo"Please Login First";
+}
+
+?>

@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f0f0f0; /* Matches light background from previous pages */
+            background-color: #f0f0f0; 
         }
 
         header {
@@ -17,7 +17,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 10px;
-            background: #ccc; /* Same header color as previous pages */
+            background: #ccc;
         }
 
         header input[type="text"] {
@@ -35,9 +35,9 @@
             margin: 20px auto;
             width: 90%;
             max-width: 1200px;
-            background: #fff; /* White background for main content */
+            background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for elevation */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
             border-radius: 5px;
         }
 
@@ -71,15 +71,15 @@
         }
 
         .action-buttons button.details {
-            background-color: #007bff; /* Blue for Details */
+            background-color: #007bff; 
         }
 
         .action-buttons button.send-to-pending {
-            background-color: #28a745; /* Green for Send to Pending */
+            background-color: #28a745; 
         }
 
         .action-buttons button.reject {
-            background-color: #dc3545; /* Red for Reject */
+            background-color: #dc3545; 
         }
 
         .action-buttons button:hover {
