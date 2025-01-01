@@ -99,7 +99,7 @@
         <div>CONNECT NATION</div>
         <input type="text" placeholder="Search..." />
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
                <a href="#">Profile</a>
         </div>
     </header>

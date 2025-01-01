@@ -102,7 +102,7 @@
     <header>
         <div>CONNECT NATION</div>
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>
@@ -124,7 +124,7 @@
             <button class="send-to-pending" onclick="sendToPending()">Send to Pending List</button>
             <button class="reject" onclick="rejectRequest()">Reject</button>
             <button class="active" onclick="activateAd()">Activate</button>
-            <button class="back" onclick="window.location.href='AdvertisementRequestList.html'">Back</button>
+            <button class="back" onclick="window.location.href='AdvertisementRequestList.php'">Back</button>
         </div>
     </main>
 

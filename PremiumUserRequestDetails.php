@@ -105,7 +105,7 @@
         <div>CONNECT NATION</div>
       
         <div>
-            <a href="Admin Homepage.html">Home</a>s
+            <a href="AdminHomepage.php">Home</a>s
             <a href="#">Profile</a>
         </div>
     </header>
@@ -154,7 +154,7 @@
         <div class="action-buttons">
             <button class="accept" onclick="acceptUser()">Accept</button>
             <button class="reject" onclick="rejectUser()">Reject</button>
-            <button class="backtoPremium" onclick="window.location.href='PremiumAccount.html'">Back</button>
+            <button class="backtoPremium" onclick="window.location.href='PremiumAccount.php'">Back</button>
             <button class="userDetail">User Details</button>
             <button class="userProfile">User Profile</button>
         </div>

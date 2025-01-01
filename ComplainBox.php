@@ -95,7 +95,7 @@
         <div>CONNECT NATION</div>
         <input type="text" placeholder="Search..." />
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>
@@ -132,7 +132,7 @@
                     <td>Lorem ipsum dolor sit amet...</td>
                     <td>Spam</td>
                     <td class="action-buttons">
-                        <button class="ignore" onclick="ignoreComplaint(this)">Ignore</button>
+                        <button class="ignore" onclick="">Ignore</button>
                         <button class="delete" onclick="deletePost(this)">Delete Post</button>
                         <button class="ban" onclick="banAccount(this)">Ban Account</button>
                         <button class="warning" onclick="Warning(this)">Warning</button>

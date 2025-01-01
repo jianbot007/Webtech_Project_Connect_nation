@@ -1,6 +1,7 @@
 <html>
 <head>
-    <title>Premium Accounts</title>
+   
+    <title>Boosting Management</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -29,19 +30,18 @@
         }
 
         main {
-            display: flex;
-            flex-direction: column;
             margin: 20px auto;
             width: 90%;
             max-width: 1200px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
+            border-radius: 5px;
         }
 
         h2 {
             color: #333;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
 
         table {
@@ -68,20 +68,15 @@
             margin-right: 5px;
         }
 
-        .action-buttons button.details {
-            background-color: #007bff; 
-        }
-
-        .action-buttons button.reminder {
-            background-color: #ffa500; 
-        }
-
-        .action-buttons button.accept {
-            background-color: #28a745; 
-        }
-
-        .action-buttons button.reject {
+        .action-buttons button.cancel {
             background-color: #dc3545; 
+        }
+
+        .action-buttons button.active {
+            background-color: #28a745;
+        }
+        .action-buttons button.profile {
+            background-color:#5b5b5b; 
         }
 
         .action-buttons button:hover {
@@ -91,93 +86,108 @@
         .section {
             margin-bottom: 40px;
         }
+
+        .request-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff; 
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .request-button:hover {
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
- 
+    
     <header>
         <div>CONNECT NATION</div>
       
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>
 
-   
     <main>
         <div class="section">
-            <h2>Premium Accounts List</h2>
+            <h2>Active Boosting</h2>
             <table>
-                <input type="text" placeholder="Search..." />
                 <thead>
                     <tr>
-                        <th>User Name</th>
-                        <th>Premium Start Date</th>
-                        <th>Days Left for Next Payment</th>
+                        <th>Account Name</th>
+                        <th>Post</th>
+                        <th>Time Remaining</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="premiumList">
+                <tbody>
                     <tr>
                         <td>user1@example.com</td>
-                        <td>2024-12-01</td>
-                        <td>10</td>
+                        <td>Post #101</td>
+                        <td>3 days</td>
                         <td class="action-buttons">
-                            <button class="reminder" onclick="sendReminder(this)">Send Reminder</button>
-                            <button class="details" onclick="viewUserDetails(this)">User Details</button>
+                            <button class="cancel" onclick="cancelBoost(this)">Cancel</button>
+                            <button class="profile" onclick="activateBoost(this)">Profile</button>
                         </td>
                     </tr>
                     <tr>
                         <td>user2@example.com</td>
-                        <td>2024-12-15</td>
-                        <td>20</td>
+                        <td>Post #102</td>
+                        <td>5 days</td>
                         <td class="action-buttons">
-                            <button class="reminder" onclick="sendReminder(this)">Send Reminder</button>
-                            <button class="details" onclick="viewUserDetails(this)">User Details</button>
+                            <button class="cancel" onclick="cancelBoost(this)">Cancel</button>
+                            <button class="profile" onclick="activateBoost(this)">Profile</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-        
         </div>
-        <button class="FullListUser" onclick="viewUserDetails(this)">Full List</button>
-      
+
+        <!-- Pending Boosting Section -->
         <div class="section">
-            <h2>Premium Account Requests</h2>
+            <h2>Pending Boosting</h2>
             <table>
-                <input type="text" placeholder="Search..." />
                 <thead>
                     <tr>
                         <th>Account Name</th>
-                        <th>Date of Request Submission</th>
+                        <th>Post</th>
                         <th>Action</th>
                     </tr>
                 </thead>
-                <tbody id="premiumRequests">
+                <tbody>
                     <tr>
                         <td>user3@example.com</td>
-                        <td>2024-12-20</td>
+                        <td>Post #201</td>
                         <td class="action-buttons">
-                            <button class="details" onclick="viewRequestDetails(this)">Details</button>
-                            <button class="accept" onclick="acceptRequest(this)">Accept</button>
-                            <button class="reject" onclick="rejectRequest(this)">Reject</button>
+                            <button class="active" onclick="activateBoost(this)">Active</button>
+                            <button class="profile" onclick="activateBoost(this)">Profile</button>
                         </td>
+        
                     </tr>
                     <tr>
                         <td>user4@example.com</td>
-                        <td>2024-12-22</td>
+                        <td>Post #202</td>
                         <td class="action-buttons">
-                            <button class="details" onclick="viewRequestDetails(this)">Details</button>
-                            <button class="accept" onclick="acceptRequest(this)">Accept</button>
-                            <button class="reject" onclick="rejectRequest(this)">Reject</button>
+                            <button class="active" onclick="activateBoost(this)">Active</button>
+                            <button class="profile" onclick="activateBoost(this)">Profile</button>
                         </td>
                     </tr>
                 </tbody>
             </table>
-          
         </div>
-        <button class="FullListRequest" onclick="viewUserDetails(this)">Full List</button>
+
+        <!-- Request Boosting Button -->
+        <button class="request-button" onclick="requestBoosting()">Request Boosting Post List</button>
     </main>
+
 </body>
 </html>

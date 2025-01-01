@@ -79,7 +79,7 @@
         <div>CONNECT NATION</div>
       
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>

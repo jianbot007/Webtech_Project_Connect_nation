@@ -92,7 +92,7 @@
     <header>
         <div>CONNNECT NATION</div>
         <div>
-            <a href="Admin Homepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>
@@ -129,7 +129,7 @@
                     <td>02:45 PM</td>
                     <td>2024-12-28</td>
                     <td class="action-buttons">
-                        <button class="details" onclick="window.location.href='AdvertisementRequestDetails.html'">Details</button>
+                        <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php'">Details</button>
                         <button class="send-to-pending" onclick="sendToPending(this)">Send to Pending List</button>
                         <button class="reject" onclick="rejectRequest(this)">Reject</button>
                     </td>
