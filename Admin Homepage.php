@@ -53,12 +53,12 @@
         <aside style="width: 20%; padding: 10px; background: #eee;">
             <ul style="list-style-type: none; padding: 0;">
                 <button onclick="">Admin Settings</button><br><br>
-                <button onclick="window.location.href='BannedAccount.html'">Banned Account</button><br><br>
-                <button onclick="window.location.href='DeletedPosts.html'">Deleted Post</button><br><br>
-                <button onclick="window.location.href='ComplainBox.html'">Complaint Box</button> <br><br>
-                <button onclick="window.location.href='PremiumAccount.html'">Premium Accounts</button><br><br>
-                <button onclick="window.location.href='BoostRequest.html'">Boost Posts</button><br><br>
-                <button onclick="window.location.href='AdvertisementManage.html'">Advertisement Management</button><br><br>
+                <button onclick="window.location.href='BannedAccount.php'">Banned Account</button><br><br>
+                <button onclick="window.location.href='DeletedPosts.php'">Deleted Post</button><br><br>
+                <button onclick="window.location.href='ComplainBox.php'">Complaint Box</button> <br><br>
+                <button onclick="window.location.href='PremiumAccount.php'">Premium Accounts</button><br><br>
+                <button onclick="window.location.href='BoostRequest.php'">Boost Posts</button><br><br>
+                <button onclick="window.location.href='AdvertisementManage.php'">Advertisement Management</button><br><br>
 
                 
             </ul>
