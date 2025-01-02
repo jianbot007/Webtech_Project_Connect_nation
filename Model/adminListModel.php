@@ -32,7 +32,7 @@
 
     function getUser($id) {
         $con = getConnection();
-        $sql = "SELECT * FROM userlist WHERE id = '{$id}'";
+        $sql = "SELECT * FROM adminlist WHERE id = '{$id}'";
         $result = mysqli_query($con, $sql);
         
         if ($result && mysqli_num_rows($result) > 0) {
@@ -45,7 +45,7 @@
 
     function getAllUser(){
         $con = getConnection(); 
-        $sql = "select * from users";
+        $sql = "select * from adminlist";
         $result = mysqli_query($con, $sql);
         $users = [];
     
@@ -58,6 +58,7 @@
         return $users;
     }
 
+    
     function updateUser($id,$username,$email,$password){
         $con = getConnection();
         $sql = "UPDATE users SET username= '{$username}', email= '{$email}', password='{$password}' WHERE id = '{$id}'";

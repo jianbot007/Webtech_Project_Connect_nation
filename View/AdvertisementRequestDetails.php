@@ -1,8 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include('../Model/AdvertisementListModel.php');
+
+if(isset($_REQUEST['id'])){
+ $AdvertisementID = $_REQUEST['id'];
+ 
+ $Advertisement = getAd($AdvertisementID);  
+
+ if ($Advertisement != null){
+
+?>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advertisement Details</title>
     <style>
         body {
@@ -111,12 +120,11 @@
     <main>
         <h2>Advertisement Details</h2>
         <div class="info">
-            <p><strong>Account Name:</strong> user1@example.com</p>
-            <p><strong>Product Name:</strong> Product A</p>
-            <p><strong>Date:</strong> 2024-12-29</p>
-            <p><strong>Time:</strong> 10:30 AM</p>
-            <p><strong>Payment Method:</strong> Credit Card</p>
-            <img src="https://via.placeholder.com/500x300" alt="Advertisement Picture">
+            <p><strong>Account Name:</strong> <?php echo ($Advertisement['accountname']); ?></p>
+            <p><strong>Product Name:</strong> <?php echo ($Advertisement['productname']); ?></p>
+            <p><strong>Date:</strong> <?php echo ($Advertisement['Date']); ?></p>
+            <p><strong>Payment Method:</strong> <?php echo ($Advertisement['payment']); ?></p>
+            <img src="<?php echo ($Advertisement['image']); ?>" alt="Advertisement Picture">
         </div>
 
        
@@ -130,3 +138,17 @@
 
 </body>
 </html>
+
+<?php 
+
+    }
+    else{
+        echo "Error : Advertisement is null";
+    }
+}
+else{
+    echo "Error : Couldnot catch any ID";
+}
+
+
+?>

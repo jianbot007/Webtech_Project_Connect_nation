@@ -1,8 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include('../Model/AdvertisementListModel.php');
+?>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Advertisement Requests</title>
     <style>
         body {
@@ -88,7 +89,6 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div>CONNNECT NATION</div>
         <div>
@@ -96,8 +96,6 @@
             <a href="#">Profile</a>
         </div>
     </header>
-
-    <!-- Main Content -->
     <main>
         <h2>All Advertisement Requests</h2>
         <table>
@@ -107,36 +105,38 @@
                     <th>Account Name</th>
                     <th>Product Name</th>
                     <th>Time</th>
-                    <th>Date</th>
                     <th>Action</th>
                 </tr>
             </thead>
             <tbody>
+            <?php 
+                $advertisements = getAllAdvertisement();
+                if($advertisements){
+                foreach($advertisements as $advertisement){
+                    if($advertisement['status'] == 'Pending'){
+                    ?>
                 <tr>
-                    <td>user1@example.com</td>
-                    <td>Product A</td>
-                    <td>10:30 AM</td>
-                    <td>2024-12-29</td>
+                <td><?php echo ($advertisement['accountname']); ?> </td>
+                <td><?php echo ($advertisement['productname']); ?> </td>
+                <td><?php echo ($advertisement['Date']); ?> </td>
                     <td class="action-buttons">
-                        <button class="details" onclick="viewDetails(this)">Details</button>
+                    <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php?id=<?php echo ($advertisement['adid']); ?>'">Details</button>
                         <button class="send-to-pending" onclick="sendToPending(this)">Send to Pending List</button>
                         <button class="reject" onclick="rejectRequest(this)">Reject</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>user2@example.com</td>
-                    <td>Product B</td>
-                    <td>02:45 PM</td>
-                    <td>2024-12-28</td>
-                    <td class="action-buttons">
-                        <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php'">Details</button>
-                        <button class="send-to-pending" onclick="sendToPending(this)">Send to Pending List</button>
-                        <button class="reject" onclick="rejectRequest(this)">Reject</button>
-                    </td>
-                </tr>
+                <?php }} ?>
             </tbody>
         </table>
     </main>
 
 </body>
 </html>
+
+<?php 
+                
+}
+else{
+    echo "Table is empty or Database conncetion failed";
+}
+?>

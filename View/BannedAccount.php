@@ -1,3 +1,9 @@
+<?php 
+include('../Model/bannedlistModel.php');
+
+?>
+
+
 <html>
 <head>
     <title>Banned Accounts</title>
@@ -94,10 +100,8 @@
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header>
         <div>CONNECT NATION</div>
-        <input type="text" placeholder="Search..." />
         <div>
             <a href="AdminHomepage.php">Home</a>
                <a href="#">Profile</a>
@@ -111,38 +115,37 @@
             <h2>Banned Account List</h2>
             <table>
                 <thead>
+
                     <tr>
                         <th>Account Name</th>
                         <th>Reason for Ban</th>
+                        <th>Banned time</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="bannedAccounts">
+                <?php 
+                $banaccs = getAllbanAccount();
+                if($banaccs){
+                foreach($banaccs as $acc){
+                    ?>
                     <tr>
-                        <td>user1@example.com</td>
-                        <td>Spamming</td>
-                        <td><button class="unban" onclick="unbanAccount(this)">Unban</button></td>
+                    <td><?php echo ($acc['accountname']); ?> </td>
+                        <td><?php echo ($acc['reason']); ?></td>
+                        <td><?php echo ($acc['bannedtime']); ?></td>
+                        <td><button class="unban" onclick="">Unban</button></td>
                     </tr>
-                    <tr>
-                        <td>user2@example.com</td>
-                        <td>Violation of Terms</td>
-                        <td><button class="unban" onclick="unbanAccount(this)">Unban</button></td>
-                    </tr>
+                    <?php } ?>
                 </tbody>
             </table>
-        </div>
-
-        <div class="section">
-            <h2>Search and Ban/Delete Account</h2>
-            <div>
-                <input type="text" id="searchInput" placeholder="Enter account name..." />
-               
-            </div>
-        </div>
-        <div class="buttons">
-            <button onclick="banAccount()">Ban</button>
-            <button onclick="deleteAccount()">Delete</button>
         </div>
     </main>
 </body>
 </html>
+
+<?php }
+else{
+    echo "Table is empty or Database conncetion failed";
+}
+?>
+

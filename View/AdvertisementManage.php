@@ -1,8 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php 
+include('../Model/AdvertisementListModel.php');
+
+?>
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
     <title>Product Advertisement Management</title>
     <style>
         body {
@@ -135,24 +139,22 @@
                     </tr>
                 </thead>
                 <tbody>
+                <?php 
+                $advertisements = getAllAdvertisement();
+                if($advertisements){
+                foreach($advertisements as $advertisement){
+                    if($advertisement['status'] == 'Pending'){
+                    ?>
                     <tr>
-                        <td>user1@example.com</td>
-                        <td>Product A</td>
+                        <td><?php echo ($advertisement['accountname']); ?> </td>
+                        <td><?php echo ($advertisement['productname']); ?> </td>
                         <td class="action-buttons">
                             <button class="active" onclick="">Active</button>
                             <button class="cancel" onclick="">Cancel</button>
-                            <button class="details" onclick="">Details</button>
+                            <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php?id=<?php echo ($advertisement['adid']); ?>'">Details</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>user2@example.com</td>
-                        <td>Product B</td>
-                        <td class="action-buttons">
-                            <button class="active" onclick="">Active</button>
-                            <button class="cancel" onclick="">Cancel</button>
-                            <button class="details" onclick="">Details</button>
-                        </td>
-                    </tr>
+                    <?php }}?>
                 </tbody>
             </table>
         </div>
@@ -168,22 +170,19 @@
                     </tr>
                 </thead>
                 <tbody>
+                      
+                    <?php 
+                       foreach($advertisements as $advertisement){
+                        if($advertisement['status'] == 'Active'){?>
                     <tr>
-                        <td>user3@example.com</td>
-                        <td>Product C</td>
+                    <td><?php echo ($advertisement['accountname']); ?> </td>
+                    <td><?php echo ($advertisement['productname']); ?> </td>
                         <td class="action-buttons">
                             <button class="deactivate" onclick="">Deactivate</button>
-                            <button class="details" onclick="">Details</button>
+                            <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php?id=<?php echo ($advertisement['adid']); ?>'">Details</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>user4@example.com</td>
-                        <td>Product D</td>
-                        <td class="action-buttons">
-                            <button class="deactivate" onclick="">Deactivate</button>
-                            <button class="details" onclick="">Details</button>
-                        </td>
-                    </tr>
+                 <?php }} ?>
                 </tbody>
             </table>
         </div>
@@ -193,3 +192,12 @@
     
 </body>
 </html>
+
+<?php 
+                
+}
+else{
+    echo "Table is empty or Database conncetion failed";
+}
+?>
+

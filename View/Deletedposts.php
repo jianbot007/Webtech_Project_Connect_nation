@@ -1,3 +1,8 @@
+<?php 
+include('../Model/DeletedPostModel.php');
+
+?>
+
 <html>
 <head>
    
@@ -88,7 +93,6 @@
     <main>
         <h2>Deleted Posts</h2>
         <table>
-            <input type="text" placeholder="Enter Account Name...." />
             <thead>
                 <tr>
                     <th>Account Name</th>
@@ -99,31 +103,20 @@
                 </tr>
             </thead>
             <tbody id="deletedPosts">
+            <?php 
+                $posts = getAllPost();
+                if($posts){
+                foreach($posts as $post){
+                    ?>
                 <tr>
-                    <td>user1@example.com</td>
-                    <td>2024-12-01 12:30 PM</td>
-                    <td>2024-11-25 3:45 PM</td>
-                    <td>POST12345</td>
-                    <td>Sheikh hasina came back to Bangaldesh</td>
+                    <td><?php echo ($post['accountname']); ?></td>
+                    <td><?php echo ($post['deletedtime']); ?></td>
+                    <td><?php echo ($post['posttime']); ?></td>
+                    <td><?php echo ($post['postid']); ?></td>
+                    <td><?php echo ($post['postdetails']); ?></td>
 
                 </tr>
-                <tr>
-                    <td>user1@example.com</td>
-                    <td>2024-12-01 12:30 PM</td>
-                    <td>2024-11-25 3:45 PM</td>
-                    <td>POST12345</td>
-                    <td>Sheikh hasina came back to Bangaldesh</td>
-
-                </tr>
-                <tr>
-                    <td>user1@example.com</td>
-                    <td>2024-12-01 12:30 PM</td>
-                    <td>2024-11-25 3:45 PM</td>
-                    <td>POST12345</td>
-                    <td>Sheikh hasina came back to Bangaldesh</td>
-
-                </tr>
-            
+                <?php } ?>
             </tbody>
         </table>
        
@@ -132,3 +125,13 @@
 
 </body>
 </html>
+
+<?php
+        
+}
+else {
+    echo "Database Connection lost or No user";
+}
+?>
+
+

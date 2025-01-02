@@ -1,3 +1,8 @@
+<?php 
+include('../Model/complainlistModel.php');
+
+?>
+
 <html>
 <head>
    
@@ -93,7 +98,6 @@
     
     <header>
         <div>CONNECT NATION</div>
-        <input type="text" placeholder="Search..." />
         <div>
             <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
@@ -114,11 +118,16 @@
                 </tr>
             </thead>
             <tbody id="complaintTable">
+            <?php 
+                $complains = getAllcomplan();
+                if($complains){
+                foreach($complains as $complain){
+                    ?>
                 <tr>
-                    <td>user1</td>
-                    <td>user1@example.com</td>
-                    <td>Sheikh Hasina is found dead...</td>
-                    <td>Inappropriate content</td>
+                    <td><?php echo ($complain['complaintname']); ?> </td>
+                    <td><?php echo ($complain['accountname']); ?> </td>
+                    <td><?php echo ($complain['postdetails']); ?> </td>
+                    <td><?php echo ($complain['complaint']); ?> </td>
                     <td class="action-buttons">
                         <button class="ignore" onclick="ignoreComplaint(this)">Ignore</button>
                         <button class="delete" onclick="deletePost(this)">Delete Post</button>
@@ -126,22 +135,16 @@
                         <button class="warning" onclick="Warning(this)">Warning</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>user2</td>
-                    <td>user2@example.com</td>
-                    <td>Lorem ipsum dolor sit amet...</td>
-                    <td>Spam</td>
-                    <td class="action-buttons">
-                        <button class="ignore" onclick="">Ignore</button>
-                        <button class="delete" onclick="deletePost(this)">Delete Post</button>
-                        <button class="ban" onclick="banAccount(this)">Ban Account</button>
-                        <button class="warning" onclick="Warning(this)">Warning</button>
-
-                    </td>
-                </tr>
+                <?php } ?>
             </tbody>
         </table>
     </main>
 
 </body>
 </html>
+
+<?php }
+else{
+    echo "Table is empty or Database conncetion failed";
+}
+?>
