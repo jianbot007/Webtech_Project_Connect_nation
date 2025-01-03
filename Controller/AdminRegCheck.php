@@ -20,13 +20,13 @@
         }else {
             $status = addUser($username, $password, $email , $fullname , $dob , $mobileno , $id , $gender);
             if($status){
-                echo "DONE";
+                header('location: ../view/AdminList.php');
             }else{
-                header('location: ../view/AdminReg.html');
+                header('location: ../view/AdminReg.php');
             }
         }
     }else{
-        header('location: ../view/AdminReg.html');
+        header('location: ../view/AdminReg.php');
     }
 
     ?>

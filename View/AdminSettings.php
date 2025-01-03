@@ -1,6 +1,7 @@
+
 <html>
 <head>
-    <title>Change Password</title>
+    <title>Admin Navigation</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -39,57 +40,50 @@
             text-align: center;
         }
 
-        form {
+        .button-container {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
- 
-
-        input, button {
-            padding: 10px;
-            margin-bottom: 15px;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-            font-size: 14px;
-        }
-
-        button {
-            background-color: #007bff;
+        .button-container a {
+            display: inline-block;
+            padding: 10px 15px;
+            font-size: 16px;
             color: white;
-            border: none;
-            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            background-color: #007bff;
+            border-radius: 5px;
         }
 
-        button:hover {
+        .button-container a:hover {
             opacity: 0.9;
         }
     </style>
 </head>
 <body>
     <header>
-    <div>CONNNECT NATION</div>
+<div>CONNNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
-            <a href="AdminSettings.php">Back</a>
         </div>
     </header>
+
     <main>
-        <h2>Change Password</h2>
-        <form method="post" action="../controller/AdminPassChangeCheck.php" enctype="">
-            Old Password:
-            <input type="password" name="oldPassword" placeholder="Enter Old Password">
-
-            New Password:
-            <input type="password" name="newPassword" placeholder="Enter New Password">
-
-            Confirm New Password:
-            <input type="password" name="confirmPassword" placeholder="Confirm New Password">
-
-            <input type="submit" name="submit" value = "Confirm">
-        </form>
+        <h2>Admin Navigation</h2>
+        <div class="button-container">
+            <a href="AdminList.php">Admin List</a>
+            <a href="AdminPassChange.php">Password Change</a>
+            <a href="AdminEditProfile.php">Edit
+            <a href="userList.php">User List</a>
+            <a href="AdminReg.php">Create a New Admin</a>
+            <a href="AdminDetailsDelete.php">Delete this Account</a>
+        </div>
     </main>
-    </script>
 </body>
 </html>
+
+
+

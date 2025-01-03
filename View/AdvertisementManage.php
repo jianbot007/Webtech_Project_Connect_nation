@@ -120,7 +120,7 @@ include('../Model/AdvertisementListModel.php');
     <header>
         <div>CONNECT NATION</div>
         <div>
-            <a href="AdminHomepage.html">Home</a>
+            <a href="AdminHomepage.php">Home</a>
             <a href="#">Profile</a>
         </div>
     </header>

@@ -15,7 +15,7 @@ if(isset($_REQUEST['submit'])){
           $_SESSION['username'] = $username;
           $_SESSION['Login'] = $_REQUEST['submit'];
 
-          if($status){
+          if($status == true){
              header('location: ../view/AdminHomePage.php');
           }
           else{

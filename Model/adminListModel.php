@@ -11,7 +11,7 @@
         $result = mysqli_query($con, $sql);
         $count =  mysqli_num_rows($result);
 
-        if($count ==1){
+        if($count == 1){
             return true;
         }else{
             return false;
@@ -30,9 +30,9 @@
 
 
 
-    function getUser($id) {
+    function getUser($username) {
         $con = getConnection();
-        $sql = "SELECT * FROM adminlist WHERE id = '{$id}'";
+        $sql = "SELECT * FROM adminlist WHERE username = '{$username}'";
         $result = mysqli_query($con, $sql);
         
         if ($result && mysqli_num_rows($result) > 0) {
@@ -43,7 +43,7 @@
     }
     
 
-    function getAllUser(){
+    function getAllAdmin(){
         $con = getConnection(); 
         $sql = "select * from adminlist";
         $result = mysqli_query($con, $sql);
@@ -67,9 +67,9 @@
         return $result;
     }
 
-    function deleteUser($id){
+    function deleteAdmin($username){
         $con = getConnection();
-        $sql = "DELETE from users where id = '{$id}'";
+        $sql = "DELETE from adminlist where username = '{$username}'";
 
         return mysqli_query($con,$sql);
     }
