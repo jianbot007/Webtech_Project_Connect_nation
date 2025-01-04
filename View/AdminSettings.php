@@ -1,4 +1,9 @@
+<?php 
 
+session_start();
+
+if (isset($_SESSION["username"])) {
+        ?>
 <html>
 <head>
     <title>Admin Navigation</title>
@@ -85,5 +90,15 @@
 </body>
 </html>
 
+
+<?php } 
+
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+
+?>
 
 

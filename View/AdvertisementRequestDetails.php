@@ -1,6 +1,9 @@
 <?php 
 include('../Model/AdvertisementListModel.php');
+session_start();
 
+if (isset($_SESSION["username"])) {
+        
 if(isset($_REQUEST['id'])){
  $AdvertisementID = $_REQUEST['id'];
  
@@ -129,9 +132,9 @@ if(isset($_REQUEST['id'])){
 
        
         <div class="action-buttons">
-            <button class="send-to-pending" onclick="sendToPending()">Send to Pending List</button>
-            <button class="reject" onclick="rejectRequest()">Reject</button>
-            <button class="active" onclick="activateAd()">Activate</button>
+            <button class="send-to-pending" onclick="">Send to Pending List</button>
+            <button class="reject" onclick="">Reject</button>
+            <button class="active" onclick="">Activate</button>
             <button class="back" onclick="window.location.href='AdvertisementRequestList.php'">Back</button>
         </div>
     </main>
@@ -149,6 +152,15 @@ if(isset($_REQUEST['id'])){
 else{
     echo "Error : Couldnot catch any ID";
 }
+} 
+
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+
+
 
 
 ?>

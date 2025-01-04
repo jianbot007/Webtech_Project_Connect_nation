@@ -1,6 +1,9 @@
 <?php 
 include('../Model/bannedlistModel.php');
+session_start();
 
+if (isset($_SESSION["username"])) {
+        
 ?>
 
 
@@ -147,5 +150,12 @@ include('../Model/bannedlistModel.php');
 else{
     echo "Table is empty or Database conncetion failed";
 }
+}
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+
 ?>
 

@@ -20,6 +20,14 @@
         return $complains;
     }
 
+    function deleteComplain($postid){
+        $con = getConnection();
+        $sql = "DELETE from complainbox where postid = '{$postid}'";
+
+        return mysqli_query($con,$sql);
+    }
+
+
     function Addcomplain($complaint,$accountname,$postdetails,$complain,$postid){
         $con = getConnection(); 
         $sql = "insert into complainbox VALUES('{$complaint}' ,'{$accountname}','{$postdetails}','{$complain}','{$postid}')";        

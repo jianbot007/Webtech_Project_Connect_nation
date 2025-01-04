@@ -1,3 +1,11 @@
+<?php 
+include('../Model/PremiumAccountModel.php');
+session_start();
+if(isset($_SESSION['username'])){
+
+?>
+
+
 <html>
 <head>
     <title>Premium Accounts</title>
@@ -109,75 +117,85 @@
         <div class="section">
             <h2>Premium Accounts List</h2>
             <table>
-                <input type="text" placeholder="Search..." />
                 <thead>
                     <tr>
                         <th>User Name</th>
-                        <th>Premium Start Date</th>
-                        <th>Days Left for Next Payment</th>
+                        <th>Premium Account Name</th>
+                        <th>Premium End Date</th>
+                        <th>Days Left</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="premiumList">
+                    <?php 
+                    $Accounts = getAllPremiumAccounts();
+                   if($Accounts != null){
+                    foreach($Accounts as $Account){
+                        if($Account['Active'] == true){
+                    
+?>
                     <tr>
-                        <td>user1@example.com</td>
-                        <td>2024-12-01</td>
-                        <td>10</td>
+                        <td><?php echo $Account['username'] ?></td>
+                        <td><?php echo $Account['Paccountname'] ?></td>
+                        <td><?php echo $Account['enddate'] ?></td>
+                        <td><?php echo $Account['remDays'] ?></td>
                         <td class="action-buttons">
-                            <button class="reminder" onclick="sendReminder(this)">Send Reminder</button>
-                            <button class="details" onclick="viewUserDetails(this)">User Details</button>
+                            <button class="reminder" onclick="">Send Reminder</button>
+                            <button class="details" onclick="">User Details</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>user2@example.com</td>
-                        <td>2024-12-15</td>
-                        <td>20</td>
-                        <td class="action-buttons">
-                            <button class="reminder" onclick="sendReminder(this)">Send Reminder</button>
-                            <button class="details" onclick="viewUserDetails(this)">User Details</button>
-                        </td>
-                    </tr>
+    <?php }}
+     ?>
                 </tbody>
             </table>
-        
         </div>
-        <button class="FullListUser" onclick="viewUserDetails(this)">Full List</button>
+
       
         <div class="section">
             <h2>Premium Account Requests</h2>
             <table>
-                <input type="text" placeholder="Search..." />
                 <thead>
                     <tr>
+                        <th>Username</th>
                         <th>Account Name</th>
-                        <th>Date of Request Submission</th>
+                        <th>End date</th>
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody id="premiumRequests">
+                    <?php 
+                     foreach($Accounts as $Account){
+                   if($Account['Active'] == false){
+                    ?>
                     <tr>
-                        <td>user3@example.com</td>
-                        <td>2024-12-20</td>
+                        <td> <?php echo $Account['username']?>  </td>
+                        <td><?php echo $Account['Paccountname'] ?></td>
+                        <td><?php echo $Account['enddate'] ?></td>
                         <td class="action-buttons">
-                            <button class="details" onclick="viewRequestDetails(this)">Details</button>
+                            <button class="details" onclick= "window.location.href = 'PremiumUserRequestDetails.php?accountname=<?php echo ($Account['Paccountname']); ?>'">Details</button>
                             <button class="accept" onclick="acceptRequest(this)">Accept</button>
                             <button class="reject" onclick="rejectRequest(this)">Reject</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>user4@example.com</td>
-                        <td>2024-12-22</td>
-                        <td class="action-buttons">
-                            <button class="details" onclick="viewRequestDetails(this)">Details</button>
-                            <button class="accept" onclick="acceptRequest(this)">Accept</button>
-                            <button class="reject" onclick="rejectRequest(this)">Reject</button>
-                        </td>
-                    </tr>
+                    <?php }}?>
                 </tbody>
             </table>
           
         </div>
-        <button class="FullListRequest" onclick="viewUserDetails(this)">Full List</button>
     </main>
 </body>
 </html>
+
+<?php
+
+               }
+
+else{
+    echo "Database is empty or connection loss";
+}
+                   
+}
+else{
+    header('location: login.php');
+}
+?>

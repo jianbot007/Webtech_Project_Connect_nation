@@ -1,13 +1,7 @@
-<?php 
-
-session_start();
-
-if (isset($_SESSION["username"])) {
-        ?>
-
 <html>
 <head>
-    <title>Change Password</title>
+   
+    <title>Premium Account Request</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,7 +13,6 @@ if (isset($_SESSION["username"])) {
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc;
         }
@@ -49,22 +42,19 @@ if (isset($_SESSION["username"])) {
         form {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
- 
-
-        input, button {
+        input, select, button {
             padding: 10px;
-            margin-bottom: 15px;
+            font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
         }
 
         button {
             background-color: #007bff;
             color: white;
-            border: none;
             cursor: pointer;
         }
 
@@ -74,39 +64,39 @@ if (isset($_SESSION["username"])) {
     </style>
 </head>
 <body>
-    <header>
-    <div>CONNNECT NATION</div>
+<header>
+        <div>CONNECT NATION</div>
+      
         <div>
-            <a href="AdminHomepage.php">Home</a>
+            <a href="AdminHomepage.php">Home</a>s
             <a href="#">Profile</a>
-            <a href="AdminSettings.php">Back</a>
         </div>
     </header>
+
     <main>
-        <h2>Change Password</h2>
-        <form method="post" action="../controller/AdminPassChangeCheck.php" enctype="">
-            Old Password:
-            <input type="password" name="oldPassword" placeholder="Enter Old Password">
+        <h2>Request Premium Account</h2>
+        <form action="../Controller/PremiumAccountCheck.php" method="POST">
+            Account Name :
+            <input type="text" id="premiumName" name="premiumName" placeholder="" >
 
-            New Password:
-            <input type="password" name="newPassword" placeholder="Enter New Password">
+           Website URL :
+            <input type="url" id="websiteURL" name="websiteURL" placeholder="https://example.com">
 
-            Confirm New Password:
-            <input type="password" name="confirmPassword" placeholder="Confirm New Password">
+            Website Name :
+            <input type="text" id="websiteName" name="websiteName" placeholder="Enter Website Name">
 
-            <input type="submit" name="submit" value = "Confirm">
+            Type :
+            <select id="type" name="type" >
+                <option value="Media Channel">Media Channel</option>
+                <option value="Website Based News Portal">Website Based News Portal</option>
+                <option value="Newspaper">Newspaper</option>
+            </select>
+
+            Subscription End Date :
+            <input type="date" id="subscribeEnd" name="subscribeEnd">
+
+            <input type="submit" name="submit" value="Submit" />
         </form>
     </main>
-    </script>
 </body>
 </html>
-
-<?php } 
-
-else {
-    echo"Please Login First";
-    header('location: ../view/login.html');
-    exit();
-}
-
-?>

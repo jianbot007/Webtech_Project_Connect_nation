@@ -1,5 +1,11 @@
 <?php
 include("../Model/adminListModel.php");
+
+
+session_start();
+
+if (isset($_SESSION["username"])) {
+
 ?>
 <html>
 <head>
@@ -142,4 +148,14 @@ include("../Model/adminListModel.php");
 else{
     echo "Databse connection error or empty table";
 }
+?>
+
+<?php } 
+
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+
 ?>

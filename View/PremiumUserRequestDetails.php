@@ -1,5 +1,15 @@
-<html>
+<?php
+include('../Model/PremiumAccountModel.php');
+if(isset($_REQUEST['accountname'])){
 
+    
+
+    $Account = getPremiumAccount($_REQUEST['accountname']);
+
+
+?>
+
+<html>
 <head>
     <title>User Details</title>
     <style>
@@ -115,47 +125,39 @@
         <h2>User Details</h2>
         <div class="details">
             <div>
-                <span>User Name:</span>
-                <span>John Doe</span>
+                <span> User Name:</span>
+                <span> <?php echo ($Account['username']); ?> </span>
             </div>
             <div>
                 <span>Premium Account Name:</span>
-                <span>somoyTV</span>
+                <span><?php echo ($Account['Paccountname']); ?></span>
             </div>
             <div>
                 <span>Website URL:</span>
-                <span><a href="https://example.com" target="_blank">https://example.com</a></span>
+                <span><a href="<?php echo ($Account['url']); ?>" target="_blank"><?php echo ($Account['url']); ?></a></span>
             </div>
             <div>
                 <span>Website Name:</span>
-                <span>SomoyTV</span>
+                <span><?php echo ($Account['websitename']); ?></span>
             </div>
             <div>
                 <span>Type:</span>
-                <span>Media Channel</span>
+                <span><?php echo ($Account['type']); ?></span>
             </div>
             <div>
                 <span>Date:</span>
-                <span>30.12.2024</span>
-            </div>
-            <div>
-                <span>Time:</span>
-                <span>12:30 AM</span>
+                <span><?php echo ($Account['enddate']); ?></span>
             </div>
             <div>
                 <span>Subscription(days):</span>
-                <span>15</span>
-            </div>
-            <div>
-                <span>Payment type:</span>
-                <span>Bkash</span>
+                <span><?php echo ($Account['remDays']); ?></span>
             </div>
         </div>
         <div class="action-buttons">
-            <button class="accept" onclick="acceptUser()">Accept</button>
-            <button class="reject" onclick="rejectUser()">Reject</button>
+            <button class="accept" onclick="">Accept</button>
+            <button class="reject" onclick="">Reject</button>
             <button class="backtoPremium" onclick="window.location.href='PremiumAccount.php'">Back</button>
-            <button class="userDetail">User Details</button>
+
             <button class="userProfile">User Profile</button>
         </div>
     </main>
@@ -163,3 +165,10 @@
   
 </body>
 </html>
+
+<?php
+}
+else{
+    echo "User could not find";
+}
+?>

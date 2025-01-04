@@ -1,5 +1,9 @@
 <?php 
 include('../Model/AdvertisementListModel.php');
+session_start();
+
+if (isset($_SESSION["username"])) {
+        
 ?>
 
 <html>
@@ -139,4 +143,11 @@ include('../Model/AdvertisementListModel.php');
 else{
     echo "Table is empty or Database conncetion failed";
 }
+}
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+
 ?>

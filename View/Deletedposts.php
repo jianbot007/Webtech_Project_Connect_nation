@@ -1,6 +1,7 @@
 <?php 
 include('../Model/DeletedPostModel.php');
-
+session_start();
+if(isset($_SESSION['username'])){
 ?>
 
 <html>
@@ -131,6 +132,12 @@ include('../Model/DeletedPostModel.php');
 }
 else {
     echo "Database Connection lost or No user";
+}
+}
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
 }
 ?>
 

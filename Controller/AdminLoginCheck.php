@@ -12,10 +12,10 @@ if(isset($_REQUEST['submit'])){
     }
     else {
           $status =  login($username,$password);
-          $_SESSION['username'] = $username;
-          $_SESSION['Login'] = $_REQUEST['submit'];
-
+        
           if($status == true){
+            $_SESSION['username'] = $username;
+            $_SESSION['Login'] = $_REQUEST['submit'];
              header('location: ../view/AdminHomePage.php');
           }
           else{

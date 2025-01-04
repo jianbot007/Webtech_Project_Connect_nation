@@ -1,6 +1,9 @@
 <?php 
 include('../Model/complainlistModel.php');
+session_start();
 
+if (isset($_SESSION["username"])) {
+        
 ?>
 
 <html>
@@ -10,8 +13,6 @@ include('../Model/complainlistModel.php');
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0; 
         }
 
@@ -129,10 +130,10 @@ include('../Model/complainlistModel.php');
                     <td><?php echo ($complain['postdetails']); ?> </td>
                     <td><?php echo ($complain['complaint']); ?> </td>
                     <td class="action-buttons">
-                        <button class="ignore" onclick="ignoreComplaint(this)">Ignore</button>
-                        <button class="delete" onclick="deletePost(this)">Delete Post</button>
-                        <button class="ban" onclick="banAccount(this)">Ban Account</button>
-                        <button class="warning" onclick="Warning(this)">Warning</button>
+                        <button class="ignore" onclick="deleteComplain($complain['postid'])">Ignore</button>
+                        <button class="delete" onclick="deletePost($complain['postid'])">Delete Post</button>
+                        <button class="ban" onclick="banAccount($complain['postid')">Ban Account</button>
+                        <button class="warning" onclick="Warning($complain['postid')">Warning</button>
                     </td>
                 </tr>
                 <?php } ?>
@@ -147,4 +148,14 @@ include('../Model/complainlistModel.php');
 else{
     echo "Table is empty or Database conncetion failed";
 }
+}
+else {
+    echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
+}
+// function DeleteComplain($id){
+//     deleteComplain($postid);
+// }
 ?>
+

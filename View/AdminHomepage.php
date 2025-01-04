@@ -3,26 +3,20 @@
 session_start();
 
 if (isset($_SESSION["username"])) {
-    if(isset($_SESSION["Login"])){
         ?>
 <html>
 <head>
-  
     <title>Admin Homepage</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
-  
 
         main {
             background: #fff; 
         }
 
-        h2 {
-            color: #333;
-        }
         input[type="text"] {
             padding: 8px;
             width: calc(100% - 120px);
@@ -79,94 +73,6 @@ if (isset($_SESSION["username"])) {
                     <button>Share</button>
                 </div>
             </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p> Boosted Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
         </section>
 
        
@@ -181,13 +87,11 @@ if (isset($_SESSION["username"])) {
 </html>
 <?php } 
 
-else{
-    echo "Please Login first";
-}
-}
-
 else {
     echo"Please Login First";
+    header('location: ../view/login.html');
+    exit();
 }
 
 ?>
+
