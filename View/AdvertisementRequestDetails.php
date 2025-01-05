@@ -6,7 +6,6 @@ if (isset($_SESSION["username"])) {
         
 if(isset($_REQUEST['id'])){
  $AdvertisementID = $_REQUEST['id'];
- 
  $Advertisement = getAd($AdvertisementID);  
 
  if ($Advertisement != null){
@@ -18,15 +17,11 @@ if(isset($_REQUEST['id'])){
     <title>Advertisement Details</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
+         
             align-items: center;
             padding: 10px;
             background: #ccc;
@@ -34,7 +29,6 @@ if(isset($_REQUEST['id'])){
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -44,8 +38,6 @@ if(isset($_REQUEST['id'])){
             max-width: 600px;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
         h2 {
@@ -54,36 +46,13 @@ if(isset($_REQUEST['id'])){
             text-align: center;
         }
 
-        .info {
-            margin-bottom: 20px;
-        }
-
-        .info p {
-            margin: 5px 0;
-            font-size: 16px;
-            color: #555;
-        }
-
-        .info img {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            margin: 10px auto;
-            border-radius: 5px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: space-between;
+        .action-buttons {s
             margin-top: 20px;
         }
 
         .action-buttons button {
             padding: 10px 15px;
-            border: none;
             color: white;
-            cursor: pointer;
             border-radius: 3px;
             font-size: 14px;
         }
@@ -103,10 +72,6 @@ if(isset($_REQUEST['id'])){
         .back {
             background-color: #6c757d; 
         }
-
-        .action-buttons button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -115,7 +80,6 @@ if(isset($_REQUEST['id'])){
         <div>CONNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
         </div>
     </header>
 
@@ -127,14 +91,11 @@ if(isset($_REQUEST['id'])){
             <p><strong>Product Name:</strong> <?php echo ($Advertisement['productname']); ?></p>
             <p><strong>Date:</strong> <?php echo ($Advertisement['Date']); ?></p>
             <p><strong>Payment Method:</strong> <?php echo ($Advertisement['payment']); ?></p>
-            <img src="<?php echo ($Advertisement['image']); ?>" alt="Advertisement Picture">
         </div>
-
-       
         <div class="action-buttons">
-            <button class="send-to-pending" onclick="">Send to Pending List</button>
-            <button class="reject" onclick="">Reject</button>
-            <button class="active" onclick="">Activate</button>
+            <button class="send-to-pending" onclick="window.location.href='../Controller/AdvertisementButton/Deactive.php?id=<?php echo ($Advertisement['adid']); ?>'">Send to Pending List</button>
+            <button class="reject" onclick="window.location.href='../Controller/AdvertisementButton/Cancle.php?id=<?php echo ($Advertisement['adid']); ?>'">Delete</button>
+            <button class="active" onclick="window.location.href='../Controller/AdvertisementButton/Active.php?id=<?php echo ($Advertisement['adid']); ?>'">Activate</button>
             <button class="back" onclick="window.location.href='AdvertisementRequestList.php'">Back</button>
         </div>
     </main>

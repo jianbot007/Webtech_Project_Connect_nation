@@ -69,10 +69,19 @@
         return $users;
     }
 
+        
+    function updateUserbyUsername($username,$fullname,$email,$phone,$gender,$dob){
+        $con = getConnection();
+        $sql = "UPDATE adminlist SET  email= '{$email}', fullname ='{$fullname}', mobileno ='{$phone}', gender = '{$gender}',dob='{$dob}' WHERE username = '{$username}'";
+        $result = mysqli_query($con, $sql);
+
+        return $result;
+    }
+
     
     function updateUser($id,$username,$email,$password){
         $con = getConnection();
-        $sql = "UPDATE users SET username= '{$username}', email= '{$email}', password='{$password}' WHERE id = '{$id}'";
+        $sql = "UPDATE adminlist SET username= '{$username}', email= '{$email}', password='{$password}' WHERE id = '{$id}'";
         $result = mysqli_query($con, $sql);
 
         return $result;
@@ -101,4 +110,28 @@
 
         return $result;
    }
+
+   function getUserbyemail($email){
+    $con = getConnection();
+    $sql = "SELECT * FROM adminlist WHERE email = '{$email}'";
+    $result = mysqli_query($con, $sql);
+    
+    if ($result && mysqli_num_rows($result) > 0) {
+        return mysqli_fetch_assoc($result);
+    } else {
+        return null; 
+    }
+
+   }
+   function getUserbymobile($mobileno){
+        $con = getConnection();
+        $sql = "SELECT * FROM adminlist WHERE mobileno = '{$mobileno}'";
+        $result = mysqli_query($con, $sql);
+        
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
+        } else {
+            return null; 
+        }
+    }
 ?>

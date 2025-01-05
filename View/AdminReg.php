@@ -11,24 +11,17 @@ if (isset($_SESSION["username"])) {
     <title>Admin Registration</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc;
         }
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
-            color: #000;
+         
         }
 
         main {
@@ -37,8 +30,6 @@ if (isset($_SESSION["username"])) {
             max-width: 600px;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
         h2 {
@@ -52,12 +43,6 @@ if (isset($_SESSION["username"])) {
             flex-direction: column;
         }
 
-        label {
-            margin-bottom: 5px;
-            font-size: 14px;
-            color: #555;
-        }
-
         input, select, button {
             padding: 10px;
             margin-bottom: 15px;
@@ -65,19 +50,12 @@ if (isset($_SESSION["username"])) {
             border-radius: 5px;
             font-size: 14px;
         }
-
-    
-
         button {
             background-color: #007bff;
             color: white;
             border: none;
-            cursor: pointer;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -85,7 +63,7 @@ if (isset($_SESSION["username"])) {
     <div>CONNNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
+            <a href="AdminSettings.php">Back</a>
         </div>
     </header>
     <main>

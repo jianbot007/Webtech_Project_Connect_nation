@@ -14,28 +14,15 @@ if(isset($_REQUEST['accountname'])){
     <title>User Details</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc; 
         }
-
-        header input[type="text"] {
-            width: 200px;
-            padding: 5px;
-        }
-
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -45,7 +32,6 @@ if(isset($_REQUEST['accountname'])){
             max-width: 600px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
             border-radius: 5px;
         }
 
@@ -79,7 +65,6 @@ if(isset($_REQUEST['accountname'])){
             padding: 10px 20px;
             border: none;
             color: white;
-            cursor: pointer;
             border-radius: 5px;
             font-size: 16px;
         }
@@ -104,10 +89,6 @@ if(isset($_REQUEST['accountname'])){
             background-color: #4323fc; 
         }
 
-
-        .action-buttons button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -115,8 +96,7 @@ if(isset($_REQUEST['accountname'])){
         <div>CONNECT NATION</div>
       
         <div>
-            <a href="AdminHomepage.php">Home</a>s
-            <a href="#">Profile</a>
+            <a href="AdminHomepage.php">Home</a>
         </div>
     </header>
 
@@ -154,10 +134,9 @@ if(isset($_REQUEST['accountname'])){
             </div>
         </div>
         <div class="action-buttons">
-            <button class="accept" onclick="">Accept</button>
-            <button class="reject" onclick="">Reject</button>
+            <button class="accept" onclick="window.location.href='../Controller/PremiumAccountButton/accept.php?name=<?php echo ($Account['Paccountname']); ?>'">Accept</button>
+            <button class="reject" onclick="window.location.href='../Controller/PremiumAccountButton/reject.php?name=<?php echo ($Account['Paccountname']); ?>'">Reject</button>
             <button class="backtoPremium" onclick="window.location.href='PremiumAccount.php'">Back</button>
-
             <button class="userProfile">User Profile</button>
         </div>
     </main>

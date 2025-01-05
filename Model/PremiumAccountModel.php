@@ -26,7 +26,12 @@
 
         return mysqli_query($con,$sql);
     }
+    function deletebyPremiumaccount($username){
+        $con = getConnection();
+        $sql = "DELETE from premiumaccountrequest where Paccountname = '{$username}'";
 
+        return mysqli_query($con,$sql);
+    }
 
     function AddPremium($username,$accountname,$url,$websitename,$type,$enddate){
         $con = getConnection(); 
@@ -50,6 +55,15 @@
             return null; 
         }
     }
+    function changeStatus($name , $status){
+        $con = getConnection();
+        $sql =  "UPDATE premiumaccountrequest SET Active = '{$status}' WHERE Paccountname = '{$name}'";
+
+
+        return mysqli_query($con, $sql);
+    }
+
+    
 
 
 ?>

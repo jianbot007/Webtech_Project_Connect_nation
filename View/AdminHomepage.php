@@ -9,7 +9,6 @@ if (isset($_SESSION["username"])) {
     <title>Admin Homepage</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             background-color: #f0f0f0;
         }
 
@@ -17,35 +16,21 @@ if (isset($_SESSION["username"])) {
             background: #fff; 
         }
 
-        input[type="text"] {
-            padding: 8px;
-            width: calc(100% - 120px);
-            margin-right: 10px;
-            border: 1px solid #ccc;
-            border-radius: 3px;
-        }
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
         button {
-            border: none;
             background-color: #007bff;
-            color: white;
-            cursor: pointer; 
+            color: white; 
         }
     </style>
 </head>
 <body>
     <header>
-        <div style="display: flex; justify-content: space-between; align-items: center; padding: 10px; background: #ccc;">
+        <div style="">
             <div>CONNECT NATION</div>
-            <input type="text" placeholder="Search..." style="width: 200px;">
-            <div>
-                <a href="#">Profile</a>
-            </div>
         </div>
     </header>
 
@@ -57,7 +42,6 @@ if (isset($_SESSION["username"])) {
                 <button onclick="window.location.href='DeletedPosts.php'">Deleted Post</button><br><br>
                 <button onclick="window.location.href='ComplainBox.php'">Complaint Box</button> <br><br>
                 <button onclick="window.location.href='PremiumAccount.php'">Premium Accounts</button><br><br>
-                <button onclick="window.location.href='BoostRequest.php'">Boost Posts</button><br><br>
                 <button onclick="window.location.href='AdvertisementManage.php'">Advertisement Management</button><br><br>
                 <button onclick="window.location.href='../Controller/Logout.php'">Log Out</button><br><br>
 
@@ -66,7 +50,7 @@ if (isset($_SESSION["username"])) {
 
         <section style="width: 60%; padding: 10px; background: #fff;">
             <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Boosted Post content goes here...</p>
+                <p>Post content goes here...</p>
                 <div style="display: flex; justify-content: space-between;">
                     <button onclick="_">Like</button>
                     <button>Comment</button>

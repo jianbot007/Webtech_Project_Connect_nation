@@ -13,23 +13,16 @@ if (isset($_SESSION["username"])) {
     <title>Admin List</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc;
         }
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -39,19 +32,15 @@ if (isset($_SESSION["username"])) {
             max-width: 800px;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
         h2 {
             color: #333;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         table {
             width: 100%;
-            border-collapse: collapse;
             margin-bottom: 20px;
         }
 
@@ -79,9 +68,6 @@ if (isset($_SESSION["username"])) {
             margin-right: 10px;
         }
 
-        .button-container a:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -90,7 +76,6 @@ if (isset($_SESSION["username"])) {
     <div>CONNNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
         </div>
     </header>
 
@@ -147,11 +132,9 @@ if (isset($_SESSION["username"])) {
                 }
 else{
     echo "Databse connection error or empty table";
+
+ } 
 }
-?>
-
-<?php } 
-
 else {
     echo"Please Login First";
     header('location: ../view/login.html');

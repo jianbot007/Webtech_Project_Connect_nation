@@ -1,20 +1,23 @@
-<?php 
+<?php
+include("../Model/adminListModel.php");
+
 
 session_start();
 
 if (isset($_SESSION["username"])) {
-        ?>
+    
+   $Admin = getUser($_SESSION["username"]);
+?>
 
 <html>
 <head>
-    <title>Change Password</title>
+    <title>Update Admin Details</title>
     <style>
         body {
             background-color: #f0f0f0;
         }
 
         header {
-            align-items: center;
             padding: 10px;
             background: #ccc;
         }
@@ -30,6 +33,7 @@ if (isset($_SESSION["username"])) {
             max-width: 600px;
             background: #fff;
             padding: 20px;
+           
         }
 
         h2 {
@@ -41,53 +45,62 @@ if (isset($_SESSION["username"])) {
         form {
             display: flex;
             flex-direction: column;
+            gap: 15px;
         }
 
-        input, button {
+        input, select, button {
             padding: 10px;
-            margin-bottom: 15px;
+            font-size: 14px;
             border: 1px solid #ccc;
             border-radius: 5px;
-            font-size: 14px;
         }
 
         button {
             background-color: #007bff;
             color: white;
-            border: none;
-            cursor: pointer;
+      
         }
+
     </style>
 </head>
 <body>
-    <header>
-    <div>CONNNECT NATION</div>
+<header>
+        <div>CONNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
             <a href="AdminSettings.php">Back</a>
         </div>
     </header>
+
     <main>
-        <h2>Change Password</h2>
-        <form method="post" action="../controller/AdminPassChangeCheck.php" enctype="">
-            Old Password:
-            <input type="password" name="oldPassword" placeholder="Enter Old Password">
+        <h2>Update Admin Details</h2>
+        <form action="../Controller/AdminEditProfileCheck.php" method="POST">
+           Name
+            <input type="text" name="fullname" placeholder="<?php echo $Admin['fullname']; ?>" >
 
-            New Password:
-            <input type="password" name="newPassword" placeholder="Enter New Password">
+            Phone Number
+            <input type="text" name="phone" placeholder="<?php echo $Admin['mobileno']; ?>" >
 
-            Confirm New Password:
-            <input type="password" name="confirmPassword" placeholder="Confirm New Password">
+            Email
+            <input type="email" id="email" name="email" placeholder="<?php echo $Admin['email']; ?>">
+
+            Date of Birth
+            <input type="date" id="dob" name="dob">
+
+            Gender
+            <select id="gender" name="gender" >
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
 
             <input type="submit" name="submit" value = "Confirm">
         </form>
     </main>
-    </script>
 </body>
 </html>
-
-<?php } 
-
+<?php 
+}            
 else {
     echo"Please Login First";
     header('location: ../view/login.html');

@@ -11,28 +11,17 @@ if(isset($_SESSION['username'])){
     <title>Premium Accounts</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
+
             background-color: #f0f0f0; 
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc; 
         }
 
-        header input[type="text"] {
-            width: 200px;
-            padding: 5px;
-        }
-
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -44,7 +33,6 @@ if(isset($_SESSION['username'])){
             max-width: 1200px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
@@ -54,7 +42,6 @@ if(isset($_SESSION['username'])){
 
         table {
             width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
         }
 
@@ -71,7 +58,6 @@ if(isset($_SESSION['username'])){
             padding: 5px 10px;
             border: none;
             color: white;
-            cursor: pointer;
             border-radius: 3px;
             margin-right: 5px;
         }
@@ -80,7 +66,7 @@ if(isset($_SESSION['username'])){
             background-color: #007bff; 
         }
 
-        .action-buttons button.reminder {
+        .action-buttons button.Inactive {
             background-color: #ffa500; 
         }
 
@@ -88,14 +74,13 @@ if(isset($_SESSION['username'])){
             background-color: #28a745; 
         }
 
+        .action-buttons button.delete {
+            background-color:rgb(229, 10, 10); 
+        }
+
         .action-buttons button.reject {
             background-color: #dc3545; 
         }
-
-        .action-buttons button:hover {
-            opacity: 0.9;
-        }
-
         .section {
             margin-bottom: 40px;
         }
@@ -108,7 +93,6 @@ if(isset($_SESSION['username'])){
       
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
         </div>
     </header>
 
@@ -140,8 +124,8 @@ if(isset($_SESSION['username'])){
                         <td><?php echo $Account['enddate'] ?></td>
                         <td><?php echo $Account['remDays'] ?></td>
                         <td class="action-buttons">
-                            <button class="reminder" onclick="">Send Reminder</button>
-                            <button class="details" onclick="">User Details</button>
+                            <button class="Inactive" onclick="window.location.href = '../Controller/PremiumAccountButton/reject.php?name=<?php echo ($Account['Paccountname']); ?>'">Inactive</button>
+                            <button class="details" onclick="window.location.href = 'PremiumUserRequestDetails.php?accountname=<?php echo ($Account['Paccountname']); ?>'">Details</button>
                         </td>
                     </tr>
     <?php }}
@@ -173,8 +157,9 @@ if(isset($_SESSION['username'])){
                         <td><?php echo $Account['enddate'] ?></td>
                         <td class="action-buttons">
                             <button class="details" onclick= "window.location.href = 'PremiumUserRequestDetails.php?accountname=<?php echo ($Account['Paccountname']); ?>'">Details</button>
-                            <button class="accept" onclick="acceptRequest(this)">Accept</button>
-                            <button class="reject" onclick="rejectRequest(this)">Reject</button>
+                            <button class="accept" onclick="window.location.href='../Controller/PremiumAccountButton/accept.php?name=<?php echo ($Account['Paccountname']); ?>'">Accept</button>
+                            <button class="reject" onclick="window.location.href='../Controller/PremiumAccountButton/reject.php?name=<?php echo ($Account['Paccountname']); ?>'">Reject</button>
+                            <button class="delete" onclick="window.location.href='../Controller/PremiumAccountButton/Delete.php?name=<?php echo ($Account['Paccountname']); ?>'">Delete</button>
                         </td>
                     </tr>
                     <?php }}?>
@@ -196,6 +181,6 @@ else{
                    
 }
 else{
-    header('location: login.php');
+    header('location:login.html');
 }
 ?>

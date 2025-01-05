@@ -15,15 +15,10 @@ if (isset($_SESSION["username"])) {
     <title>Product Advertisement Management</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0; 
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
             align-items: center;
             padding: 10px;
             background: #ccc; 
@@ -36,7 +31,6 @@ if (isset($_SESSION["username"])) {
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -46,8 +40,6 @@ if (isset($_SESSION["username"])) {
             max-width: 1200px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
         h2 {
@@ -74,7 +66,6 @@ if (isset($_SESSION["username"])) {
             padding: 5px 10px;
             border: none;
             color: white;
-            cursor: pointer;
             border-radius: 3px;
             margin-right: 5px;
         }
@@ -94,31 +85,21 @@ if (isset($_SESSION["username"])) {
             background-color: #ffc107; 
         }
 
-        .action-buttons button:hover {
-            opacity: 0.9;
-        }
-
         .section {
             margin-bottom: 40px;
         }
 
         .request-button {
-            display: block;
             width: 100%;
             padding: 10px;
             background-color: #007bff; 
             color: white;
-            border: none;
             border-radius: 5px;
             font-size: 16px;
-            cursor: pointer;
             text-align: center;
             margin-top: 20px;
         }
 
-        .request-button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -126,7 +107,7 @@ if (isset($_SESSION["username"])) {
         <div>CONNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
+   
         </div>
     </header>
 
@@ -154,8 +135,8 @@ if (isset($_SESSION["username"])) {
                         <td><?php echo ($advertisement['accountname']); ?> </td>
                         <td><?php echo ($advertisement['productname']); ?> </td>
                         <td class="action-buttons">
-                            <button class="active" onclick="">Active</button>
-                            <button class="cancel" onclick="">Cancel</button>
+                            <button class="active" onclick="window.location.href='../Controller/AdvertisementButton/Active.php?id=<?php echo ($advertisement['adid']); ?>'">Active</button>
+                            <button class="cancel" onclick="window.location.href='../Controller/AdvertisementButton/Cancle.php?id=<?php echo ($advertisement['adid']); ?>'">Cancel</button>
                             <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php?id=<?php echo ($advertisement['adid']); ?>'">Details</button>
                         </td>
                     </tr>
@@ -183,7 +164,7 @@ if (isset($_SESSION["username"])) {
                     <td><?php echo ($advertisement['accountname']); ?> </td>
                     <td><?php echo ($advertisement['productname']); ?> </td>
                         <td class="action-buttons">
-                            <button class="deactivate" onclick="">Deactivate</button>
+                            <button class="deactivate" onclick="window.location.href='../Controller/AdvertisementButton/Deactive.php?id=<?php echo ($advertisement['adid']); ?>'">Deactivate</button>
                             <button class="details" onclick="window.location.href='AdvertisementRequestDetails.php?id=<?php echo ($advertisement['adid']); ?>'">Details</button>
                         </td>
                     </tr>

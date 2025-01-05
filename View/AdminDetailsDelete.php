@@ -13,23 +13,16 @@ if(isset($_SESSION["username"])){
     <title>Admin Details</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc;
         }
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -39,27 +32,19 @@ if(isset($_SESSION["username"])){
             max-width: 600px;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             border-radius: 5px;
         }
 
         h2 {
             color: #333;
             margin-bottom: 20px;
-            text-align: center;
         }
 
         .details-container {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+      
         }
-
-        .details-container div {
-            display: flex;
-            justify-content: space-between;
-        }
-
         .details-container div span {
             font-weight: bold;
             color: #555;
@@ -73,14 +58,10 @@ if(isset($_SESSION["username"])){
         .button-container button {
             padding: 10px 15px;
             font-size: 16px;
-            border: none;
             color: white;
             background-color: #007bff;
-            cursor: pointer;
-            border-radius: 5px;
-            margin: 0 10px;
+          
         }
-
         .button-container button.delete {
             background-color: #dc3545;
         }
@@ -96,7 +77,6 @@ if(isset($_SESSION["username"])){
     <div>CONNNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
         </div>
     </header>
 

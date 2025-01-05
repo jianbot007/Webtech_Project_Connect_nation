@@ -4,22 +4,16 @@
     <title>Premium Account Request</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0;
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
             padding: 10px;
             background: #ccc;
         }
 
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -29,8 +23,6 @@
             max-width: 600px;
             background: #fff;
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
         }
 
         h2 {
@@ -55,12 +47,8 @@
         button {
             background-color: #007bff;
             color: white;
-            cursor: pointer;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>

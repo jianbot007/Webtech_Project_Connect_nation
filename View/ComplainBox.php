@@ -12,26 +12,16 @@ if (isset($_SESSION["username"])) {
     <title>Complaint Box</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
             background-color: #f0f0f0; 
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
             padding: 10px;
             background: #ccc; 
         }
 
-        header input[type="text"] {
-            width: 200px;
-            padding: 5px;
-        }
-
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
@@ -43,7 +33,6 @@ if (isset($_SESSION["username"])) {
             max-width: 1200px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
 
         h2 {
@@ -52,7 +41,6 @@ if (isset($_SESSION["username"])) {
 
         table {
             width: 100%;
-            border-collapse: collapse;
             margin-top: 20px;
         }
 
@@ -69,7 +57,6 @@ if (isset($_SESSION["username"])) {
             padding: 5px 10px;
             border: none;
             color: white;
-            cursor: pointer;
             border-radius: 3px;
             margin-right: 5px;
         }
@@ -89,10 +76,6 @@ if (isset($_SESSION["username"])) {
         .action-buttons button.ban {
             background-color: #007bff;
         }
-
-        .action-buttons button:hover {
-            opacity: 0.9;
-        }
     </style>
 </head>
 <body>
@@ -101,7 +84,7 @@ if (isset($_SESSION["username"])) {
         <div>CONNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-            <a href="#">Profile</a>
+          
         </div>
     </header>
 
@@ -130,10 +113,10 @@ if (isset($_SESSION["username"])) {
                     <td><?php echo ($complain['postdetails']); ?> </td>
                     <td><?php echo ($complain['complaint']); ?> </td>
                     <td class="action-buttons">
-                        <button class="ignore" onclick="deleteComplain($complain['postid'])">Ignore</button>
-                        <button class="delete" onclick="deletePost($complain['postid'])">Delete Post</button>
-                        <button class="ban" onclick="banAccount($complain['postid')">Ban Account</button>
-                        <button class="warning" onclick="Warning($complain['postid')">Warning</button>
+                        <button class="ignore" onclick="window.location.href='../Controller/ComplainButtons/ignore.php?id=<?php echo $complain['accountid']; ?>'">Ignore</button>
+                        <button class="delete" onclick="window.location.href='../Controller/ComplainButtons/Delete.php?id=<?php echo $complain['accountid']; ?>'">Delete Post</button>
+                        <button class="ban" onclick="window.location.href='../Controller/ComplainButtons/Ban.php?id=<?php echo $complain['accountid']; ?>'">Ban Account</button>
+                        <button class="warning" onclick="">Warning</button>
                     </td>
                 </tr>
                 <?php } ?>

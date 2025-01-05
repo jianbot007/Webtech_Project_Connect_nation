@@ -49,4 +49,11 @@
             return null; 
         }
     }
+
+    function DeleteAd($id){
+        $con = getConnection();
+        $sql =  "DELETE from adlist WHERE adid = '{$id}'";
+
+        return mysqli_query($con,$sql);
+    }
 ?>

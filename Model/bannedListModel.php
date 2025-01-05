@@ -20,6 +20,7 @@
         return $accounts;
     }
 
+
     function AddBanAcc($accid,$accountname,$reason,$bannedtime){
         $con = getConnection(); 
         $sql = "insert into bannedlist VALUES('{$accid}' ,'{$accountname}','{$reason}','{$bannedtime}')";        
@@ -29,5 +30,12 @@
             return false;
         }
 
+    }
+
+    function Unban($accid){
+        $con = getConnection(); 
+        $sql = "DELETE from bannedlist where accountid = '{$accid}'";
+
+        return mysqli_query($con, $sql);
     }
 ?>

@@ -12,40 +12,26 @@ if (isset($_SESSION["username"])) {
     <title>Banned Accounts</title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
             background-color: #f0f0f0; 
         }
 
         header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+    
             padding: 10px;
             background: #ccc; 
         }
 
-        header input[type="text"] {
-            width: 200px;
-            padding: 5px;
-        }
-
         header a {
             margin-left: 10px;
-            text-decoration: none;
             color: #000;
         }
 
         main {
-            display: flex;
-            flex-direction: column;
             margin: 20px auto;
             width: 90%;
             max-width: 1200px;
             background: #fff; 
             padding: 20px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); 
         }
 
         h2 {
@@ -58,7 +44,6 @@ if (isset($_SESSION["username"])) {
 
         table {
             width: 100%;
-            border-collapse: collapse;
             margin-top: 10px;
         }
 
@@ -76,7 +61,6 @@ if (isset($_SESSION["username"])) {
             border: none;
             background-color: #007bff;
             color: white;
-            cursor: pointer;
             border-radius: 3px;
         }
 
@@ -84,16 +68,11 @@ if (isset($_SESSION["username"])) {
             background-color: #28a745;
         }
 
-        button:hover {
-            opacity: 0.9;
-        }
-
         input[type="text"] {
             padding: 8px;
             width: calc(100% - 120px);
             margin-right: 10px;
             border: 1px solid #ccc;
-            border-radius: 3px;
         }
 
         .buttons {
@@ -107,7 +86,7 @@ if (isset($_SESSION["username"])) {
         <div>CONNECT NATION</div>
         <div>
             <a href="AdminHomepage.php">Home</a>
-               <a href="#">Profile</a>
+
         </div>
     </header>
 
@@ -136,7 +115,7 @@ if (isset($_SESSION["username"])) {
                     <td><?php echo ($acc['accountname']); ?> </td>
                         <td><?php echo ($acc['reason']); ?></td>
                         <td><?php echo ($acc['bannedtime']); ?></td>
-                        <td><button class="unban" onclick="">Unban</button></td>
+                        <td><button class="unban" onclick="window.location.href='../Controller/Unban.php?id=<?php echo $acc['accountid']; ?>'">Unban</button></td>
                     </tr>
                     <?php } ?>
                 </tbody>

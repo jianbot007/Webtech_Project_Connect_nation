@@ -5,6 +5,40 @@
         return $con;
     }
 
+    function GetComplain($id){
+        $con = getConnection();
+        $sql = "SELECT * FROM complainbox WHERE accountid = '{$id}'";
+        $result = mysqli_query($con, $sql);
+        
+        if ($result && mysqli_num_rows($result) > 0) {
+            return mysqli_fetch_assoc($result);
+        } else {
+            return null; 
+        }
+
+    }
+
+    function AddBanAcc($accid,$accountname,$reason,$bannedtime){
+        $con = getConnection(); 
+        $sql = "insert into bannedlist VALUES('{$accid}' ,'{$accountname}','{$reason}','{$bannedtime}')";        
+        if(mysqli_query($con, $sql)){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    
+    function Addpost($postid,$accountname,$deletedtime,$posttime,$postdetails){
+        $con = getConnection(); 
+        $sql = "insert into deletedpost VALUES( '{$postid}' ,'{$accountname}','{$deletedtime}','{$posttime}','{$postdetails}')";        
+        if(mysqli_query($con, $sql)){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     function getAllcomplan(){
         $con = getConnection(); 
         $sql = "select * from complainbox";
@@ -20,9 +54,9 @@
         return $complains;
     }
 
-    function deleteComplain($postid){
+    function deleteComplain($id){
         $con = getConnection();
-        $sql = "DELETE from complainbox where postid = '{$postid}'";
+        $sql = "DELETE from complainbox where accountid = '{$id}'";
 
         return mysqli_query($con,$sql);
     }
