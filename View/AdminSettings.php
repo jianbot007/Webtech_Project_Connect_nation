@@ -47,7 +47,7 @@ if (isset($_SESSION["username"])) {
             font-size: 16px;
             color: white;
             text-align: center;
-            background-color: #007bff;
+            background-color:rgb(0, 119, 246);
         }
     </style>
 </head>

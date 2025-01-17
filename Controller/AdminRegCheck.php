@@ -1,36 +1,23 @@
 <?php
  include('../Model/adminListModel.php');
 
- if(isset($_POST['submit'])){
-        
-        $username  =  trim($_REQUEST['username']);
-        $password  =  trim($_REQUEST['password']);
-        $email  =  trim($_REQUEST['email']);
-        $fullname = trim($_REQUEST['fullname']);
-        $dob= trim($_REQUEST['dob']);
-        $mobileno = trim($_REQUEST['phone']);
-        $id = trim($_REQUEST['id']);
-        $gender = trim($_REQUEST['gender']);
+ if(isset($_REQUEST['mydata'])){
 
-       function FullnameCheck($Fullname) {
-            for ($i = 0; $i < strlen($Fullname) ; $i++) {
-                $ascii= ord($Fullname[$i]);
-               
-                if (!(($ascii >= 65 && $ascii <= 90) || ($ascii >= 97 && $ascii <= 122) || $ascii == 32)) {
-                    return false;
-                }
-        
-            }
-             return true;
+        $json = $_REQUEST['mydata'];
+        $NewAdmin = json_decode($json);
+        if($NewAdmin == null){
+            echo "Failed to json Decode";
         }
 
-        function usernameCheck($Username){
-            $ascii= ord($Username[0]);
-            if (!(($ascii >= 65 && $ascii <= 90) || ($ascii >= 97 && $ascii <= 122))) {
-                return false;
-            }
-                return true;
-        }
+        $username  =  $NewAdmin ->username;
+        $password  =  $NewAdmin ->password;
+        $email  =  $NewAdmin ->email;
+        $fullname = $NewAdmin ->fullname;
+        $dob= $NewAdmin ->dob;
+        $mobileno = $NewAdmin ->mobileno;
+        $id = $NewAdmin ->id;
+        $gender =$NewAdmin ->gender;
+
         $emailcheck = getUserbyemail($email);
         $mobilecheck = getUserbymobile($mobileno);
         $usernameCheck2 = getUser($username);
@@ -39,22 +26,10 @@
         if( empty($username) || empty($password) || empty($email) || empty($fullname) || empty($dob) || 
         empty($mobileno) || empty($id) || empty($gender)){
             echo "Null data found!";
-        }
-        elseif(strlen($password) < 8){
-            echo "Password character should be more than 8";
-        }
-        elseif(strlen($mobileno) != 11 || $mobileno[0] != '0' || $mobileno[1] != '1'){
-            echo "Mobile phone no must be start with 01 and character number exactly 11";
-        }
-        elseif(FullnameCheck($fullname) != true){
-           echo "Number cant be in Fullname";
-        }
-        elseif(usernameCheck($username) != true){
-            echo "First Character cant be space or number or speacial sign";
-        }
-           
-        elseif($usernameCheck2 != null ){
-           echo "username already in database,change username";
+         }
+
+        else if($usernameCheck2 != null ){
+           echo "Username already in database,change username";
         }
         elseif($idCheck != null){
           echo "id already in database,change id";
@@ -68,13 +43,12 @@
         else {
             $status = addUser($username, $password, $email , $fullname , $dob , $mobileno , $id , $gender);
             if($status){
-                header('location: ../view/AdminList.php');
+                echo "Admin Create Succesful";
             }else{
-                header('location: ../view/AdminReg.php');
+               echo "Error ";
             }
         }
     }else{
-        header('location: ../view/AdminReg.php');
+       echo "ERROR HAPPEND";
     }
-
     ?>

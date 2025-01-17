@@ -51,11 +51,7 @@ if (isset($_SESSION["username"])) {
         }
 
         table th {
-            background-color: #f4f4f4;
-        }
-
-        .button-container {
-            text-align: center;
+            background-color:rgb(181, 181, 181);
         }
 
         .button-container a {
@@ -63,8 +59,7 @@ if (isset($_SESSION["username"])) {
             font-size: 16px;
             color: white;
             text-decoration: none;
-            background-color: #007bff;
-            border-radius: 5px;
+            background-color:rgb(0, 94, 255);
             margin-right: 10px;
         }
 

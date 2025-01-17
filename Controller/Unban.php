@@ -7,7 +7,7 @@ if(isset($_REQUEST['id'])){
     header('location: ../view/BannedAccount.php');
 }
 else {
-    echo "ERROR : Could catch ID";
+    echo "ERROR : Could not catch ID";
 }
 
 ?>

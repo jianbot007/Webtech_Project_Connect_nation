@@ -1,10 +1,8 @@
 <?php
-
 include('../Model/adminListModel.php');
 session_start();
 if(isset($_SESSION['username'])){
   if(isset($_REQUEST['submit'])){
-
     $username = $_SESSION['username'];
     $email  =  trim($_REQUEST['email']);
     $fullname = trim($_REQUEST['fullname']);
@@ -15,11 +13,9 @@ if(isset($_SESSION['username'])){
     function FullnameCheck($Fullname) {
         for ($i = 0; $i < strlen($Fullname) ; $i++) {
             $ascii= ord($Fullname[$i]);
-           
             if (!(($ascii >= 65 && $ascii <= 90) || ($ascii >= 97 && $ascii <= 122) || $ascii == 32)) {
                 return false;
             }
-    
         }
          return true;
     }
@@ -33,7 +29,7 @@ if(isset($_SESSION['username'])){
     }
 
 if(FullnameCheck($fullname) != true){
-       echo "Number cant be in Fullname";
+       echo "Number can't be in Fullname";
     }
     else {
         $status = updateUserbyUsername($username,$fullname,$email,$mobileno,$gender,$dob);
@@ -43,21 +39,14 @@ if(FullnameCheck($fullname) != true){
             header('location: ../view/AdminReg.php');
         }
     }
-
-   
   }
   else{
     echo "ERROR : No submit";
   }
-
-
-
 }
 else{
     echo"Please Login First";
     header('location: ../view/login.html');
     exit();
 }
-
-
 ?>

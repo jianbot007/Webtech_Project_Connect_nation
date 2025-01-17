@@ -1,12 +1,17 @@
 <?php
 session_start();
 include('../Model/adminListModel.php');
+if(isset($_REQUEST['mydata'])){
+    $json = $_REQUEST['mydata'];
+    $user = json_decode($json);
+    if($user == null){
+        echo "Failed to json Decode";
+        exit();
+    }
 
-if(isset($_REQUEST['submit'])){
-
+    $username =  $user ->username;
+    $password =  $user ->password;
    
-    $username = trim($_REQUEST['username']);
-    $password = trim($_REQUEST['password']);
     if (empty($username) || empty($password)) {
         echo "Null data found!";
     }
@@ -15,17 +20,20 @@ if(isset($_REQUEST['submit'])){
         
           if($status == true){
             $_SESSION['username'] = $username;
-            $_SESSION['Login'] = $_REQUEST['submit'];
-             header('location: ../view/AdminHomePage.php');
+            echo "LOGIN SUCCESFUL";
+            exit();
+             
           }
           else{
              echo "Wrong Password,Try again";
+             exit();
           }
 
 }
 }
 else {
-    header('location: ../view/login.html');
+    echo "Try Again Please.....";
+    exit();
 }
 
 

@@ -61,10 +61,6 @@ if (isset($_SESSION["username"])) {
             margin-right: 5px;
         }
 
-        .action-buttons button.warning{
-            background-color: #3c657d; 
-        }
-
         .action-buttons button.ignore {
             background-color: #6c757d; 
         }
@@ -92,7 +88,6 @@ if (isset($_SESSION["username"])) {
     <main>
         <h2>Complaint Box</h2>
         <table>
-            <thead>
                 <tr>
                     <th>Complainant Name</th>
                     <th>Post Account</th>
@@ -100,7 +95,6 @@ if (isset($_SESSION["username"])) {
                     <th>Complaint</th>
                     <th>Action</th>
                 </tr>
-            </thead>
             <tbody id="complaintTable">
             <?php 
                 $complains = getAllcomplan();
@@ -116,7 +110,6 @@ if (isset($_SESSION["username"])) {
                         <button class="ignore" onclick="window.location.href='../Controller/ComplainButtons/ignore.php?id=<?php echo $complain['accountid']; ?>'">Ignore</button>
                         <button class="delete" onclick="window.location.href='../Controller/ComplainButtons/Delete.php?id=<?php echo $complain['accountid']; ?>'">Delete Post</button>
                         <button class="ban" onclick="window.location.href='../Controller/ComplainButtons/Ban.php?id=<?php echo $complain['accountid']; ?>'">Ban Account</button>
-                        <button class="warning" onclick="">Warning</button>
                     </td>
                 </tr>
                 <?php } ?>

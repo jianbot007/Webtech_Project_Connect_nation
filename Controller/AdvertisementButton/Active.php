@@ -12,7 +12,7 @@ if(isset($_REQUEST['id'])){
 
 else{
     
-    echo "ERROR : id";
+    echo "ERROR : Could not catch id";
 }
 
 ?>

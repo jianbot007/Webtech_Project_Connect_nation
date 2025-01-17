@@ -29,14 +29,11 @@ if (isset($_SESSION["username"])) {
 </head>
 <body>
     <header>
-        <div style="">
-            <div>CONNECT NATION</div>
-        </div>
+            CONNECT NATION
     </header>
 
-    <main style="display: flex;">
-        <aside style="width: 20%; padding: 10px; background: #eee;">
-            <ul style="list-style-type: none; padding: 0;">
+    <main >
+            <ul>
                 <button onclick="window.location.href='AdminSettings.php'">Admin Settings</button><br><br>
                 <button onclick="window.location.href='BannedAccount.php'">Banned Account</button><br><br>
                 <button onclick="window.location.href='DeletedPosts.php'">Deleted Post</button><br><br>
@@ -46,26 +43,8 @@ if (isset($_SESSION["username"])) {
                 <button onclick="window.location.href='../Controller/Logout.php'">Log Out</button><br><br>
 
             </ul>
-        </aside>
+    
 
-        <section style="width: 60%; padding: 10px; background: #fff;">
-            <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 10px;">
-                <p>Post content goes here...</p>
-                <div style="display: flex; justify-content: space-between;">
-                    <button onclick="_">Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-        </section>
-
-       
-        <aside style="width: 20%; padding: 10px; background: #eee;">
-            <div style="border: 1px solid #ccc; height: 100px; margin-bottom: 10px;">Ad Space</div>
-            <div style="border: 1px solid #ccc; height: 100px; margin-bottom: 10px;">Ad Space</div>
-            <div style="border: 1px solid #ccc; height: 100px; margin-bottom: 10px;">Ad Space</div>
-
-        </aside>
     </main>
 </body>
 </html>

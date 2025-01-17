@@ -57,7 +57,6 @@
       
         <div>
             <a href="AdminHomepage.php">Home</a>s
-            <a href="#">Profile</a>
         </div>
     </header>
 
@@ -68,7 +67,7 @@
             <input type="text" id="premiumName" name="premiumName" placeholder="" >
 
            Website URL :
-            <input type="url" id="websiteURL" name="websiteURL" placeholder="https://example.com">
+            <input type="url" id="websiteURL" name="websiteURL" placeholder="https://googlr.com">
 
             Website Name :
             <input type="text" id="websiteName" name="websiteName" placeholder="Enter Website Name">
