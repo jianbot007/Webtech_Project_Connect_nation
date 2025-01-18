@@ -11,19 +11,26 @@ if (isset($_SESSION["username"])) {
 <head>
     <title>Banned Accounts</title>
     <style>
-        body {
-            background-color: #f0f0f0; 
+            body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         header {
-    
-            padding: 10px;
-            background: #ccc; 
+            padding: 10px 20px;
+            background: #343a40;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header a {
-            margin-left: 10px;
-            color: #000;
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 15px;
         }
 
         main {

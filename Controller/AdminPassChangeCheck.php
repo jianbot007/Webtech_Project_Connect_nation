@@ -4,14 +4,16 @@ include('../Model/adminListModel.php');
 
 
 if (isset($_SESSION['username'])) {
-if(isset($_REQUEST['submit'])){
+if(isset($_REQUEST['mydata'])){
+
+    $passwords = json_decode($_REQUEST['mydata']);
 
     $username = $_SESSION['username'];
-    $oldpassword = trim($_REQUEST['oldPassword']);
-    $newpassword = trim($_REQUEST['newPassword']);
-    $confirmpassword = trim($_REQUEST['confirmPassword']);
+    $oldpassword = $passwords->oldpassword;
+    $newpassword = $passwords->newpassword;
+   
     
-    if (empty($oldpassword) || empty($newpassword) || empty($confirmpassword)) {
+    if (empty($oldpassword) || empty($newpassword)) {
         echo "Null data found!";
     }
     else
@@ -19,24 +21,18 @@ if(isset($_REQUEST['submit'])){
         $password = getPassword($username);
         
        if($password == $oldpassword){
-          if($newpassword == $confirmpassword){
             updatePassword($username,$newpassword);
-            header('location: ../view/AdminHomepage.php');
+            echo "Password Change Succesfully";
           }
           else{
-                echo "confirmpass and pass is not same";
-          }
+            echo "Old Password is not correct, Please type correct Old Pasword";
+           }
+    
        }
-       else{
-        echo "Password is not correct";
-       }
-
-    }
-
 
 }
 else {
-    header('location: ../view/AdminPassChange');
+    echo "Try Again Please";
 }
 }
 else {

@@ -4,10 +4,6 @@ include('../Model/adminListModel.php');
 if(isset($_REQUEST['mydata'])){
     $json = $_REQUEST['mydata'];
     $user = json_decode($json);
-    if($user == null){
-        echo "Failed to json Decode";
-        exit();
-    }
 
     $username =  $user ->username;
     $password =  $user ->password;

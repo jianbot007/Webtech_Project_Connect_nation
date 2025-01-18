@@ -2,41 +2,37 @@
 include('../Model/adminListModel.php');
 session_start();
 if(isset($_SESSION['username'])){
-  if(isset($_REQUEST['submit'])){
+  if(isset($_REQUEST['mydata'])){
+    
     $username = $_SESSION['username'];
-    $email  =  trim($_REQUEST['email']);
-    $fullname = trim($_REQUEST['fullname']);
-    $dob= trim($_REQUEST['dob']);
-    $mobileno = trim($_REQUEST['phone']);
-    $gender = trim($_REQUEST['gender']);
+    $Admin = json_decode($_REQUEST['mydata']);
+    
+    $email  =  $Admin->email;
+    $fullname = $Admin->fullname;
+    $dob= $Admin->dob;
+    $mobileno = $Admin->mobileno;
+    $gender = $Admin->gender;
 
-    function FullnameCheck($Fullname) {
-        for ($i = 0; $i < strlen($Fullname) ; $i++) {
-            $ascii= ord($Fullname[$i]);
-            if (!(($ascii >= 65 && $ascii <= 90) || ($ascii >= 97 && $ascii <= 122) || $ascii == 32)) {
-                return false;
-            }
-        }
-         return true;
-    }
+    $emailcheck = getUserbyemail($email);
+    $mobilecheck = getUserbymobile($mobileno);
+   
 
-    function usernameCheck($Username){
-        $ascii= ord($Username[0]);
-        if (!(($ascii >= 65 && $ascii <= 90) || ($ascii >= 97 && $ascii <= 122))) {
-            return false;
-        }
-            return true;
+    if( $username == null ||$email  ==  null || $fullname == null || $dob == null ||$mobileno == null ||
+    $gender == null){
+        echo "Null Value Found";
     }
-
-if(FullnameCheck($fullname) != true){
-       echo "Number can't be in Fullname";
-    }
+  else if($emailcheck == true){
+         echo "This Email already taken";
+  }
+  else if($mobilecheck == true){
+        echo 'This Mobile no already taken';
+  }
     else {
         $status = updateUserbyUsername($username,$fullname,$email,$mobileno,$gender,$dob);
         if($status != null){
-            header('location: ../view/AdminList.php');
+           echo "Admin Info Updated Succesfully";
         }else{
-            header('location: ../view/AdminReg.php');
+           echo "Admin Info Update Failed,Try agian";
         }
     }
   }
@@ -45,7 +41,7 @@ if(FullnameCheck($fullname) != true){
   }
 }
 else{
-    echo"Please Login First";
+    echo "Please Login First";
     header('location: ../view/login.html');
     exit();
 }

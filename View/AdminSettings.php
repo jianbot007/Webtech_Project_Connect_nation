@@ -9,46 +9,69 @@ if (isset($_SESSION["username"])) {
     <title>Admin Navigation</title>
     <style>
         body {
-            background-color: #f0f0f0;
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
         }
 
         header {
-            padding: 10px;
-            background: #ccc;
+            padding: 10px 20px;
+            background: #343a40;
+            color: #fff;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
         header a {
-            margin-left: 10px;
-            color: #000;
+            color: #007bff;
+            text-decoration: none;
+            margin-left: 15px;
         }
 
         main {
-            margin: 20px auto;
+            margin: 40px auto;
             width: 90%;
             max-width: 600px;
             background: #fff;
-            padding: 20px;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         }
 
         h2 {
             color: #333;
             margin-bottom: 20px;
             text-align: center;
+            font-size: 22px;
         }
 
         .button-container {
             display: flex;
             flex-direction: column;
             gap: 15px;
-            padding : 15px;
         }
+
         .button-container a {
-            padding: 10px 15px;
+            display: block;
+            padding: 12px 15px;
             font-size: 16px;
-            color: white;
+            color: #fff;
             text-align: center;
-            background-color:rgb(0, 119, 246);
+            background-color: #007bff;
+            border-radius: 5px;
+            text-decoration: none;
         }
+
+        .button-container a:hover {
+            background-color: #0056b3;
+        }
+
+        .button-container a:active {
+            background-color: #004085;
+        }
+    </style>
     </style>
 </head>
 <body>

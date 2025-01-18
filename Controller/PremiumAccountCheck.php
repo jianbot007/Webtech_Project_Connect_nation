@@ -1,13 +1,20 @@
 <?php
 include('../Model/PremiumAccountModel.php');
 
-if(isset($_REQUEST['submit'])){
+if(isset($_REQUEST['mydata'])){
+      $json = $_REQUEST['mydata'];
+      $PremiumAcc = json_decode($json);
+
+      if($PremiumAcc == null){
+        echo "Failed to decode";
+      }
+      
       $username = 'test';
-      $AccountName = $_REQUEST['premiumName'];
-      $Url = $_REQUEST['websiteURL'];
-      $websiteName = $_REQUEST['websiteName'];
-      $type = $_REQUEST['type'];
-      $Enddate = $_REQUEST['subscribeEnd'];
+      $AccountName = $PremiumAcc->premiumName ;
+      $Url = $PremiumAcc->websiteURL;
+      $websiteName = $PremiumAcc->websiteName;
+      $type = $PremiumAcc->type;
+      $Enddate = $PremiumAcc->subscribeEnd;
 
 if(empty($username) || empty($AccountName) || empty($Url) || empty($websiteName) || empty($type) || empty($Enddate)){
     echo "Null Data Found";
@@ -15,14 +22,13 @@ if(empty($username) || empty($AccountName) || empty($Url) || empty($websiteName)
 }
 
 else{
-
     $status = AddPremium($username,$AccountName,$Url,$websiteName,$type,$Enddate);
 
     if($status =! null){
         echo "Premium Account added successfully";
     }
     else{
-       echo "failed";
+       echo "Failed to add";
     }
 }
 
