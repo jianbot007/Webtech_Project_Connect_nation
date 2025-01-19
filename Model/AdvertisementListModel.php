@@ -20,7 +20,7 @@
         return $Advertisements;
     }
 
-    function Addadvertisement($complaint,$accountname,$postdetails,$complain,$postid){
+    function Addadvertisement($adid,$accountname,$productname,$date,$image,$status,$payment){
         $con = getConnection(); 
         $sql = "insert into adlist VALUES('{$adid}','{$accountname}','{$productname}','{$date}','{$image}','{$status}','{$payment}')";        
         if(mysqli_query($con, $sql)){
