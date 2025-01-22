@@ -16,13 +16,10 @@ if(isset($_REQUEST['mydata'])){
         
           if($status == true){
             $_SESSION['username'] = $username;
-            echo "LOGIN SUCCESFUL";
-            exit();
-             
+            echo "LOGIN SUCCESFUL";  
           }
           else{
              echo "Wrong Password,Try again";
-             exit();
           }
 
 }

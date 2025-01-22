@@ -1,6 +1,7 @@
 <?php 
 
 session_start();
+include("../Model/AdvertisementListModel.php");
 
 if (isset($_SESSION["username"])) {
 ?>
@@ -9,8 +10,8 @@ if (isset($_SESSION["username"])) {
     
     <title>Admin Homepage</title>
     <style>
-             body {
-            background-color: #f8f9fa;
+        body {
+            background-color:rgb(255, 255, 255);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -18,15 +19,15 @@ if (isset($_SESSION["username"])) {
 
         header {
             padding: 10px 20px;
-            background: #343a40;
-            color: #fff;
+            background:rgb(52, 58, 64);
+            color:rgb(255, 255, 255) ;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         header a {
-            color: #007bff;
+            color:rgb(0, 123, 255);
             text-decoration: none;
             margin-left: 15px;
         }
@@ -38,7 +39,7 @@ if (isset($_SESSION["username"])) {
         }
 
         .left-menu {
-            background-color: #fff;
+            background-color:;
             padding: 20px;
             border-radius: 5px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -52,7 +53,6 @@ if (isset($_SESSION["username"])) {
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
         }
 
         .left-menu button:hover {
@@ -63,34 +63,10 @@ if (isset($_SESSION["username"])) {
             background-color: #fff;
             padding: 20px;
             border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: rgba(0, 0, 0, 0.1);
         }
 
-        .post {
-            border-bottom: 1px solid #ddd;
-            padding: 10px 0;
-        }
-
-        .post:last-child {
-            border-bottom: none;
-        }
-        .post-actions {
-            margin-top: 10px;
-        }
-
-        .post-actions button {
-            margin-right: 10px;
-            padding: 5px 10px;
-            background-color: #007bff;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .post-actions button:hover {
-            background-color: #0056b3;
-        }
+   
 
         .right-ad {
             background-color: #fff;
@@ -123,48 +99,25 @@ if (isset($_SESSION["username"])) {
             
         </div>
         <div class="middle-content">
-            <div class="post">
-                <h3>User Post Title 1</h3>
-                <p>This is the content of the first user post.</p>
-                <div class="post-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-
-            <div class="post">
-                <h3>User Post Title 2</h3>
-                <p>This is the content of the second user post.</p>
-                <div class="post-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
-            </div>
-
-            <div class="post">
-                <h3>User Post Title 2</h3>
-                <p>This is the content of the second user post.</p>
-                <div class="post-actions">
-                    <button>Like</button>
-                    <button>Comment</button>
-                    <button>Share</button>
-                </div>
+            <div >
+                <h3>User Post Title</h3>
+                <p>User Content.</p>
             </div>
         </div>
 
         
         <div class="right-ad">
+            <?php 
+            $Ads = getAllAdvertisement();
+            
+            foreach($Ads as $Ad){
+                   if($Ad['status'] == "Active"){
+                ?>
             <div class="ad-item">
-                <h4>Ad Title 1</h4>
-                <p>Description of the first ad.</p>
+                <h4><?php echo $Ad['productname'] ?></h4>
+                <p>POST DETAILS</p>
             </div>
-
-            <div class="ad-item">
-                <h4>Ad Title 2</h4>
-                <p>Description of the second ad.</p>
-            </div>
+            <?php  }} ?>
         </div>
     </div>
 </body>

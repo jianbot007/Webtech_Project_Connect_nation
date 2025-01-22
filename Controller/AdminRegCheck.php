@@ -45,7 +45,7 @@
             if($status){
                 echo "Admin Create Succesful";
             }else{
-               echo "Error ";
+               echo "Error..Try Again please";
             }
         }
     }else{

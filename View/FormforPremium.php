@@ -3,7 +3,7 @@
     <title>Premium Account Request</title>
     <style>
              body {
-            background-color: #f8f9fa;
+            background-color:rgb(255, 255, 255);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -11,29 +11,23 @@
 
         header {
             padding: 10px 20px;
-            background: #343a40;
-            color: #fff;
+            background:rgb(52, 58, 64);
+            color:rgb(255, 255, 255) ;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        header a {
-            color: #007bff;
-            text-decoration: none;
-            margin-left: 15px;
         }
 
         main {
             margin: 20px auto;
             width: 90%;
             max-width: 600px;
-            background: #fff;
+            background: rgb(175, 175, 175) ;
             padding: 20px;
         }
 
         h2 {
-            color: #333;
+            color: rgb(0, 0, 0) ;
             margin-bottom: 20px;
             text-align: center;
         }
@@ -61,10 +55,6 @@
 <body>
 <header>
         <div>CONNECT NATION</div>
-      
-        <div>
-            <a href="AdminHomepage.php">Home</a>
-        </div>
     </header>
 
     <main>
@@ -131,7 +121,7 @@
                     alert(this.responseText);
                      } 
                 if(this.responseText === "Premium Account added successfully"){
-                    //window.location.href = "../view/AdminHomePage.php";
+                    //window.location.href = "../view/UserHomePage.php";
                 }
             }
             }

@@ -12,8 +12,8 @@ if(isset($_SESSION["username"])){
 <head>
     <title>Admin Details</title>
     <style>
-            body {
-            background-color: #f8f9fa;
+      body {
+            background-color:rgb(255, 255, 255);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -21,15 +21,15 @@ if(isset($_SESSION["username"])){
 
         header {
             padding: 10px 20px;
-            background: #343a40;
-            color: #fff;
+            background:rgb(52, 58, 64);
+            color:rgb(255, 255, 255) ;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
 
         header a {
-            color: #007bff;
+            color:rgb(0, 123, 255);
             text-decoration: none;
             margin-left: 15px;
         }

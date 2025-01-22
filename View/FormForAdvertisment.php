@@ -3,8 +3,8 @@
 <head> 
     <title>Advertisement Request</title>
     <style>
-        body {
-            background-color: #f8f9fa;
+          body {
+            background-color:rgb(255, 255, 255);
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
@@ -12,24 +12,18 @@
 
         header {
             padding: 10px 20px;
-            background: #343a40;
-            color:rgb(255, 255, 255);
+            background:rgb(52, 58, 64);
+            color:rgb(255, 255, 255) ;
             display: flex;
             justify-content: space-between;
             align-items: center;
-        }
-
-        header a {
-            color: #007bff;
-            text-decoration: none;
-            margin-left: 15px;
         }
 
         main {
             margin: 20px auto;
             width: 90%;
             max-width: 600px;
-            background: #fff;
+            background: rgb(175, 175, 175) ;
             padding: 20px;
         }
 
@@ -61,9 +55,6 @@
 <body>
 <header>
     <div>CONNECT NATION</div>
-    <div>
-        <a href="AdminHomepage.php">Home</a>
-    </div>
 </header>
 
 <main>
@@ -82,9 +73,6 @@
             <option value="Bank">Bank</option>
         </select>
 
-        Upload Advertisement Image:
-        <input type="file" id="adImage" name="adImage" accept="image/*">
-
         <input type="submit" name="submit" value="Submit" onclick="AdvertisementFormValidation(event)" />
     </form>
 </main>
@@ -96,8 +84,7 @@
         let productName = document.getElementById('productName').value;
         let adDate = document.getElementById('adDate').value;
         let paymentMethod = document.getElementById('paymentMethod').value;
-       // let adImage = document.getElementById('adImage').files[0];
-
+      
         if (productName === '') {
             alert("Please fill in the Product Name field");
         } else if (adDate === '') {

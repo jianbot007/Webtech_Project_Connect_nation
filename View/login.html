@@ -1,49 +1,100 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <title> Login Page</title>
+    <title>Login Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background: #ffffff;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+
+        input[type="text"], input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
 <body>
-        <form>
-            Username: <input type="text" id="username" name="username" value="" /> <br>
-            Password: <input type="password" id="password" name="password" value="" /> <br><br>
-                       <input type="submit" value="Submit" onclick = LoginValidation(event) />
-        </form>
+    <form>
+        <div>
+            Username:
+            <input type="text" id="username" name="username" value="" />
+        </div>
+        <div>
+            Password:
+            <input type="password" id="password" name="password" value="" />
+        </div>
+        <div>
+            <input type="submit" value="Submit" onclick="LoginValidation(event)" />
+        </div>
+    </form>
 
-        <script>
-            
-            function LoginValidation(event){
-                event.preventDefault();
-                
-                let username = document.getElementById('username').value;
-                let password = document.getElementById('password').value; 
-              
-               if(username === ''){
-                alert("Please fillup username field");
-               }
-               else if(password === ''){
-                alert("Please fillup password field");
-               }
-               else{
+    <script>
+        function LoginValidation(event) {
+            event.preventDefault();
+
+            let username = document.getElementById('username').value;
+            let password = document.getElementById('password').value;
+
+            if (username === '') {
+                alert("Please fill up the username field");
+            } else if (password === '') {
+                alert("Please fill up the password field");
+            } else {
                 let xhttp = new XMLHttpRequest();
-                let json = {'username' : username, 'password' : password};
+                let json = { 'username': username, 'password': password };
                 let user = JSON.stringify(json);
-                if(user == null){
-                    alert ("Failed to INCODE json");
+
+                if (user == null) {
+                    alert("Failed to encode JSON");
                 }
+
                 xhttp.open('POST', '../Controller/AdminLoginCheck.php', true);
                 xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
                 xhttp.send('mydata=' + user);
+
                 xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    alert(this.responseText);
-                     } 
-                if(this.responseText === "LOGIN SUCCESFUL"){
-                    window.location.href = "../view/AdminHomePage.php";
+                    if (this.readyState == 4 && this.status == 200) {
+                        alert(this.responseText);
+                    }
+                    if (this.responseText == "LOGIN SUCCESFUL") {
+                        window.location.href = "AdminHomepage.php";
+                    }
                 }
             }
-            }
         }
-        </script>
-        
+    </script>
 </body>
 </html>
